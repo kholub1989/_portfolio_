@@ -1,0 +1,141 @@
+{
+  "main": {
+    "name": "Krisztian Holub",
+    "occupation": "Front End Developer | Freelancer | JavaScript | React | Node",
+    "description": "Professional Web Developer. JavaScript, React, D3, jQuery, Node.js, SQL, MySQL, Firebase, MongoDB, Express.js, Redux, AJAX, JSON, WebAPI, WordPress, OOP, MVC, REST, HTML5, CSS3, Less and Sass.",
+    "description-main": "Hi, I’m Krisztian Holub I design and build beautiful things and I love what I do.",
+    "bio": "I am a strong conceptual thinker with an extreme interest in information technology. My main abilities are designing and execution of code with a diversity of each project. I possess commitment and enthusiasm to develop websites and web applications that fulfill the requirements of the client for a fast-growing business. I have a stunning track record for the development of dynamic and fluid web interfaces. I am an ambitious problem solver for the online business, and I would like to join a team of developers to exhibit my skills and abilities for the development of responsive, cross-browser, cross-platform and bug-free projects.",
+    "skills": "JavaScript, TypeScript, React, D3, jQuery, Node.js, PHP, SQL, MySQL, PostgreSQL, Firebase, MongoDB, Express, Redux, AJAX, JSON, WebAPI, WordPress, OOP, MVC, REST, HTML5, CSS3, Less and Sass.",
+    "tools": "Chrome DevTools, Git/GitHub, Command Line, NPM, Composer, Glup, Grunt, Babel, Webpack, Bootstrap, Semantic UI, Material-UI, Materialize CSS, BEM, Photoshop, XD, Sketch, Figma.",
+    "email": "kholub1989@gmail.com",
+    "phone": "+1 (347)725-2616",
+    "address": {
+      "street": "1925 Quentin Road",
+      "city": "Brooklyn",
+      "state": "New York",
+      "zip": "11229"
+    },
+    "website": "https://www.krisztianholub.com/",
+    "resume-google-drive": "https://drive.google.com/drive/u/0/folders/1Wsp3MLh_Oeshm-5_k3OT1WMcHqFn3G-M",
+    "socialLinks": [
+      {
+        "name": "linkedin-icon",
+        "url": "https://www.linkedin.com/in/kholub1989/",
+        "icon": "/images/sprite.svg#linkedin"
+      },
+      {
+        "name": "github-icon",
+        "url": "https://github.com/kholub1989",
+        "icon": "/images/sprite.svg#github"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "COVID-19 Tracker",
+        "using": "React Hooks, Material UI, Charts.js",
+        "description": "Tracker application with charts and visualizations.",
+        "image": "/images/COVID-19.png",
+        "url": "https://inspiring-dubinsky-f594fc.netlify.app/",
+        "urlGit": "https://github.com/kholub1989/COVID-19"
+      },
+      {
+        "title": "eCommerce Phone Store",
+        "using": "javaScript, React, Styled Components",
+        "description": "This web application is a store that can sell mobile devices.",
+        "image": "/images/eCommercePhoneStore.png",
+        "url": "https://kholub1989ecommercephonestore.netlify.app/",
+        "urlGit": ""
+      },
+      {
+        "title": "Social Media App",
+        "using": "JavaScript, MongoDB, Express, Node, React, GraphQL",
+        "description": "Full-stack app with implementing a GraphQL server that uses Node and Express to communicate to a MongoDB Database and fetch and persist data to the back-end.",
+        "image": "/images/social-media-app.png",
+        "url": "https://lucid-cray-0e02b8.netlify.app/",
+        "urlGit": "https://github.com/kholub1989/social-media-app"
+      },
+      {
+        "title": "React Colors App",
+        "using": "JavaScript, React, Hooks, Context, NextJS, Router",
+        "description": "Clone of websites like Flat UI Colors and Material UI Colors.",
+        "image": "/images/reactcolors.png",
+        "url": "https://zen-almeida-c5214c.netlify.app/",
+        "urlGit": "https://github.com/kholub1989/react-colors-project"
+      },
+      {
+        "title": "Dad Jokes",
+        "using": "Java Script, React, Axios, uuid, RESTful routing",
+        "description": "This web application displays a random Dad Joke which you can rate.",
+        "image": "/images/dadjokes.png",
+        "url": "https://laughing-hugle-1020a6.netlify.app/",
+        "urlGit": "https://github.com/kholub1989/dad-jokes-app"
+      },
+      {
+        "title": "YelpCamp",
+        "using": "VANILLA JS, Node.js, Express, MongoDB, RESTful routing, Bootstrap 4",
+        "description": "Is a full-stack web dev project for searching campgrounds. The app has user authentication and authorization features, functionality is adding campground posts, comments, and likes.",
+        "image": "/images/yelpCamp.png",
+        "url": "https://young-taiga-22812.herokuapp.com/",
+        "urlGit": "https://github.com/kholub1989/yelpCamp"
+      },
+      {
+        "title": "CO2 Dashboard",
+        "using": "JavaScript, D3.js",
+        "description": "A comprehensive dashboard consisting maps, pie chart and bar chart to visualize CO2 emissions across the world.",
+        "image": "/images/CO2Dashboard.png",
+        "url": "https://laughing-torvalds-3751ea.netlify.app/",
+        "urlGit": "https://github.com/kholub1989/d3co2dashboard"
+      },
+      {
+        "title": "Blogging System",
+        "using": "PHP, CRUD, CSS 3, HTML 5",
+        "description": "This project contains the most essential functionalities of an ordinary blogging system should have. Home Page, Control Panel.",
+        "image": "/images/cms.png",
+        "url": "https://github.com/kholub1989/CMS-Project-Blogging-System",
+        "urlGit": "https://github.com/kholub1989/CMS-Project-Blogging-System"
+      },
+      {
+        "title": "Tetris",
+        "using": "JavaScript, React, Hooks, Styled Components.",
+        "description": "Classic tetris game built with React.",
+        "image": "/images/tetrisgame.png",
+        "url": "https://wonderful-pike-11d450.netlify.app/",
+        "urlGit": "https://github.com/kholub1989/tetris-game"
+      },
+      {
+        "title": "Warbler",
+        "using": "JavaScript, React, Node.js, Bootstrap 4",
+        "description": "Twitter clone application and API",
+        "image": "/images/warbler.png",
+        "url": "https://github.com/kholub1989/Warbler",
+        "urlGit": "https://github.com/kholub1989/Warbler"
+      },
+      {
+        "title": "Pacman",
+        "using": "JavaScript, Html, Css",
+        "description": "Pacman game made with JS",
+        "image": "/images/pacman.png",
+        "url": "https://github.com/kholub1989/Pacman",
+        "urlGit": "https://github.com/kholub1989/Pacman"
+      },
+      {
+        "title": "",
+        "using": "",
+        "description": "",
+        "image": "/images/",
+        "url": "",
+        "urlGit": ""
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": [
+      {
+        "user": "",
+        "text": ""
+      }
+    ]
+  }
+}
