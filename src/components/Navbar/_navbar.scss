@@ -1,0 +1,198 @@
+.header {
+  position: fixed;
+  left: 0;
+  top: -0.2rem;
+  width: 100%;
+  background-color: $color-primary-light;
+  box-shadow: 0px 2px 4px 0px $color-black;
+  z-index: 999;
+
+  &__wrapper {
+    @include container;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 5.2rem;
+  }
+
+  &__wrapper--link {
+    cursor: pointer;
+    height: 3.5rem;
+    width: 3.5rem;
+    user-select: none;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    padding: 0 4rem 0 0;
+
+    @include respound(phone) {
+      padding: 0 2.5rem 0 0;
+    }
+
+    &:last-child {
+      padding: 0;
+    }
+
+    // & > .nav-active {
+    //   color: $color-primary;
+    //   transition: all 0.5s ease-in-out;
+    // }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    color: $color-white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+    // &:link,
+    // &:visited {
+    // }
+
+    // &:focus,
+    // &:active,
+    // &:hover {
+    //   color: $color-primary;
+    // }
+
+    // &::after {
+    //   position: absolute;
+    //   content: "";
+    //   width: 100%;
+    //   height: 2px;
+    //   top: 100%;
+    //   left: 0;
+    //   background: #039ae5;
+    //   transition: transform 0.8s;
+    //   transform: scaleX(0);
+    //   transform-origin: left;
+    // }
+
+    // &:hover::after {
+    //   transform: scaleX(1);
+    //   transform-origin: left;
+    // }
+
+    &.nav-active {
+      color: $color-primary;
+    }
+  }
+}
+
+.burger-menu {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.burger {
+  position: absolute;
+  background: $color-white;
+  width: 100%;
+  // height: 3px;
+  height: 0.2rem;
+  top: 50%;
+  right: 0;
+  margin-top: -2px;
+  border-radius: 1rem;
+  opacity: 1;
+
+  &::before {
+    position: absolute;
+    background: $color-white;
+    width: 3rem;
+    // height: 3px;
+    height: 0.2rem;
+    top: 6px;
+    content: "";
+    display: block;
+    border-radius: 1rem;
+  }
+
+  &::after {
+    position: absolute;
+    background: $color-white;
+    width: 3rem;
+    // height: 3px;
+    height: 0.2rem;
+    bottom: 6px;
+    content: "";
+    display: block;
+    border-radius: 1rem;
+  }
+
+  &::after,
+  &::before,
+  & {
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.burger-menu.menu-on .burger::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+.burger-menu.menu-on .burger::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.burger-menu.menu-on .burger {
+  background: transparent;
+}
+
+// Custom Top Header Scroll
+progress {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.2rem;
+  border: none;
+  background: transparent;
+}
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+progress::-webkit-progress-value {
+  background: linear-gradient(
+    to left,
+    rgb(3, 119, 190),
+    rgb(3, 154, 229),
+    rgb(42, 182, 246),
+    rgb(129, 212, 250),
+    rgb(179, 229, 252),
+    rgb(226, 245, 254)
+  );
+  background-attachment: fixed;
+}
+progress::-moz-progress-bar {
+  background: linear-gradient(
+    to left,
+    rgb(3, 119, 190),
+    rgb(3, 154, 229),
+    rgb(42, 182, 246),
+    rgb(129, 212, 250),
+    rgb(179, 229, 252),
+    rgb(226, 245, 254)
+  );
+  background-attachment: fixed;
+}
