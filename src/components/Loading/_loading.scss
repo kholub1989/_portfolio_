@@ -1,0 +1,30 @@
+.loading-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  @include absCenter;
+  @include respound(phone) {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.loader-div {
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border: 8px solid $color-primary-light2;
+  border-radius: 50%;
+  border-top: 8px solid $color-primary;
+  animation: rotate 2s linear infinite;
+
+  @include respound(phone) {
+    border: 4px solid $color-primary-light2;
+    border-top: 4px solid $color-primary;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
