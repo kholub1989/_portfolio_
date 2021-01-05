@@ -30,7 +30,7 @@ const List = () => {
           <Link
             className="nav__link"
             activeClass="nav-active"
-            to="home"
+            to="home-wrapper"
             spy={true}
             smooth={true}
             // offset={-50}
@@ -107,7 +107,7 @@ const List = () => {
 const Navbar = () => {
   gsap.registerPlugin(ScrollTrigger);
   const header = useRef(null);
-  const scroll = useRef(null);
+  const customScroll = useRef(null);
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width:900px)").matches
   );
@@ -122,38 +122,29 @@ const Navbar = () => {
       duration: 1.5,
       ease: Power3.easeOut,
     });
-    gsap.to("progress", {
+    gsap.to(customScroll.current, {
       value: 100,
       ease: "none",
-      scrollTrigger: { scrub: 0.3 },
+      scrollTrigger: { scrub: 0.3, once: true },
     });
-    // gsap.from("nav", {
-    //   opacity: 0,
-    //   y: -50,
-    //   delay: 0.3,
-    //   duration: 1.5,
-    //   ease: Power3.easeOut,
-    // });
-  }, [header]);
+  }, [header, customScroll]);
 
   return (
-    <>
-      <div className="header" ref={header}>
-        <div className="header__wrapper">
-          <Link
-            to="home"
-            smooth={true}
-            offset={-50}
-            duration={400}
-            className="header__wrapper--link"
-          >
-            <Logo />
-          </Link>
-          {isMobile ? <MobileList /> : <List />}
-        </div>
-        <progress max="100" value="0" ref={scroll}></progress>
+    <div className="header" ref={header}>
+      <div className="header__wrapper">
+        <Link
+          to="home"
+          smooth={true}
+          offset={-50}
+          duration={400}
+          className="header__wrapper--link"
+        >
+          <Logo />
+        </Link>
+        {isMobile ? <MobileList /> : <List />}
       </div>
-    </>
+      <progress max="100" value="0" ref={customScroll}></progress>
+    </div>
   );
 };
 

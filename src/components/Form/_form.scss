@@ -1,0 +1,65 @@
+.contact-me__form {
+  @include container;
+  max-width: 70%;
+
+  &-box {
+    margin-bottom: 2.5rem;
+  }
+
+  &--label {
+    font-size: 0;
+  }
+
+  &--input {
+    color: $color-white;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    border: 2px solid $color-white;
+    transition: all 0.3s;
+    padding: 1.2rem;
+    width: 100%;
+    outline: 0;
+
+    &:focus {
+      border: 2px solid $color-primary;
+    }
+  }
+
+  &--btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  textarea {
+    min-height: 15rem;
+    resize: vertical;
+
+    @include respound(tab-port) {
+      min-height: 30rem;
+    }
+
+    @include respound(phone) {
+      min-height: 20rem;
+    }
+  }
+}
+
+input.error,
+textarea.error {
+  border: 2px solid $color-error;
+}
+
+.errorMessage {
+  color: $color-error;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  // padding: 0.2rem;
+}

@@ -1,0 +1,74 @@
+.scroll-down-mobile,
+.scroll-down-desktop {
+  position: relative;
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+// ------- MobileScrollDown ------- //
+.scroll-down-mobile span {
+  @include absCenter;
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid $color-white;
+  border-bottom: 1px solid $color-white;
+  transform: rotate(-45deg);
+  animation: scroll-down-mobile 2s infinite;
+}
+
+@keyframes scroll-down-mobile {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+// ------- DesktopScrollDown ------- //
+.scroll-down-desktop span {
+  @include absCenter;
+  position: absolute;
+  top: 0;
+  height: 3.5rem;
+  width: 2rem;
+  background-color: transparent;
+  border: 2px solid $color-white;
+  border-radius: 1.5rem;
+}
+
+.scroll-down-desktop span:before {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  content: "";
+  width: 2px;
+  height: 6px;
+  margin-left: -1px;
+  background-color: $color-primary;
+  border-radius: 30%;
+  animation: scroll-down-desktop 2s infinite;
+}
+
+@keyframes scroll-down-desktop {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    transform: translate(0, 6px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
