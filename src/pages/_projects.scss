@@ -1,0 +1,66 @@
+.project-wrapper {
+  @include container;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects {
+  @include respound(tab-land) {
+    @include u-margin-top-big;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @include respound(tab-port) {
+      flex-direction: column;
+    }
+  }
+
+  &__main--project {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    @include u-margin-bottom-medium;
+
+    @include respound(tab-land) {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    & > .project-img {
+      width: 40%;
+
+      @include respound(tab-land) {
+        width: 100%;
+      }
+
+      & > a img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        border-radius: 2rem;
+        box-shadow: 0 5px 15px 5px $color-black;
+      }
+    }
+    & > .project-desc {
+      width: 60%;
+      padding-left: 6rem;
+
+      @include respound(tab-land) {
+        width: 100%;
+      }
+
+      @include respound(tab-port) {
+        padding-left: 0;
+      }
+    }
+  }
+}

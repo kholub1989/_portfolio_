@@ -1,0 +1,13 @@
+.contact-me-wrapper {
+  @include container;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-me {
+  @include respound(tab-land) {
+    @include u-margin-top-big;
+  }
+}

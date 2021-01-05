@@ -1,0 +1,41 @@
+.home-wrapper {
+  @include container;
+
+  .home {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respound(tab-port) {
+      flex-direction: column;
+    }
+
+    &__text {
+      flex-basis: 55%;
+      flex-grow: 1;
+      margin-right: 2rem;
+
+      @include respound(tab-port) {
+        @include u-margin-top-medium;
+        @include u-margin-bottom-big;
+        flex-basis: 40%;
+        margin-right: 0;
+        flex-grow: 0;
+      }
+    }
+
+    &__logo {
+      flex-basis: 45%;
+      user-select: none;
+      pointer-events: none;
+
+      @include respound(tab-port) {
+        width: 80%;
+        height: auto;
+        flex-basis: 60%;
+        @include u-margin-bottom-big;
+      }
+    }
+  }
+}
