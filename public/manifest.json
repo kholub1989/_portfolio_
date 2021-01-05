@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Krisztian Holub portfolio.",
+  "name": "Krisztian Holub | Front End Developer | Freelancer | Creator Of Things",
+  "description": "Hi, I’m Krisztian Holub I design and build beautiful things and I love what I do.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +19,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#0e1d2c"
 }
