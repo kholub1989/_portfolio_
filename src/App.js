@@ -37,8 +37,8 @@ function App() {
       {loading ? (
         <>
           <Navbar />
-          <Home _data={data} id="home" />
-          <About _data={data} id="about" />
+          <Home _data={data.main} id="home" />
+          <About _data={data.main} id="about" />
           <Projects _data={data.portfolio} to="projects" />
           <ContactMe to="contact-me" />
           <Footer _data={data} />
