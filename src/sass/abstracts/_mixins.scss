@@ -1,0 +1,141 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800px] is where our normal style apply
+1800 + :        BIG desctop
+
+$breakpoint:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em - 16px
+ */
+
+// ------- Nadia Query ------- //
+@mixin respound($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+    //600px
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+    //900px
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+    //1200px
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+    //1800px
+  }
+}
+
+// ------- Utilities ------- //
+@mixin container {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  @include respound(tab-port) {
+    padding: 0 40px;
+  }
+
+  @include respound(tab-land) {
+    padding: 0 60px;
+  }
+
+  @include respound(phone) {
+    padding: 0 20px;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin u-center-text {
+  text-align: center !important;
+}
+
+@mixin u-margin-top-huge {
+  margin-top: 8rem !important;
+}
+
+@mixin u-margin-top-big {
+  margin-top: 5rem !important;
+}
+
+@mixin u-margin-top-medium {
+  margin-top: 4rem !important;
+}
+
+@mixin u-margin-bottom-big {
+  margin-bottom: 6rem !important;
+
+  @include respound(tab-port) {
+    margin-bottom: 4rem !important;
+  }
+}
+
+@mixin u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+
+  @include respound(tab-port) {
+    margin-bottom: 3rem !important;
+  }
+}
+
+@mixin u-margin-bottom-small {
+  margin-bottom: 2rem !important;
+  @include respound(tab-port) {
+    margin-bottom: 4rem !important;
+  }
+}
+
+// Animation for projects
+.bounceInLeft {
+  animation: bounceInLeft ease 1s;
+}
+
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30rem);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(2.5rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
