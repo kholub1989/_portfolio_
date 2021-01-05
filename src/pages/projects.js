@@ -92,6 +92,7 @@ function Projects({ _data }) {
         },
       }
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [h2, proj]);
 
   const handelClickShowMore = () => {
