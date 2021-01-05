@@ -1,0 +1,17 @@
+@import "./sass/abstracts/variables";
+@import "./sass/abstracts/mixins";
+
+@import "./sass/base/base";
+@import "./sass//base/typography";
+
+@import "./components/Loading/loading.scss";
+@import "./components/ScrollDown/scrollDown";
+@import "./components/Navbar/navbar";
+@import "./components/Button/button";
+@import "./components/Footer/footer";
+@import "./components/Form/form";
+
+@import "./pages/home";
+@import "./pages/about";
+@import "./pages/projects";
+@import "./pages/contact-me";
