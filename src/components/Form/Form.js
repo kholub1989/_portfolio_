@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import * as emailjs from "emailjs-com";
+import React, { Component } from "react";
 import "../../main.scss";
 
 const emailRegex = RegExp(
@@ -121,21 +121,20 @@ class Form extends Component {
         <div className="contact-me__form-box">
           <label className="contact-me__form--label" htmlFor="name">
             Name
+            <input
+              className={
+                formErrors.name.length > 0
+                  ? " contact-me__form--input error"
+                  : "contact-me__form--input"
+              }
+              name="name"
+              type="text"
+              placeholder="Name"
+              value={name}
+              noValidate
+              onChange={this.handleChange}
+            />
           </label>
-          <input
-            // className="contact-me__form--input"
-            className={
-              formErrors.name.length > 0
-                ? " contact-me__form--input error"
-                : "contact-me__form--input"
-            }
-            name="name"
-            type="text"
-            placeholder="Name"
-            value={name}
-            noValidate
-            onChange={this.handleChange}
-          />
 
           {formErrors.name.length > 0 && (
             <span className="errorMessage">{formErrors.name}</span>
@@ -144,22 +143,20 @@ class Form extends Component {
         <div className="contact-me__form-box">
           <label className="contact-me__form--label" htmlFor="email">
             Email
+            <input
+              className={
+                formErrors.email.length > 0
+                  ? "contact-me__form--input error"
+                  : "contact-me__form--input"
+              }
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={email}
+              noValidate
+              onChange={this.handleChange}
+            />
           </label>
-          <input
-            // className="contact-me__form--input"
-            className={
-              formErrors.email.length > 0
-                ? "contact-me__form--input error"
-                : "contact-me__form--input"
-            }
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={email}
-            noValidate
-            onChange={this.handleChange}
-          />
-
           {formErrors.email.length > 0 && (
             <span className="errorMessage">{formErrors.email}</span>
           )}
@@ -167,21 +164,20 @@ class Form extends Component {
         <div className="contact-me__form-box">
           <label className="contact-me__form--label" htmlFor="text">
             Type something…
+            <textarea
+              className={
+                formErrors.message.length > 0
+                  ? "contact-me__form--input error"
+                  : "contact-me__form--input"
+              }
+              name="message"
+              type="text"
+              placeholder="Type something…"
+              value={message}
+              noValidate
+              onChange={this.handleChange}
+            />
           </label>
-          <textarea
-            // className="contact-me__form--input"
-            className={
-              formErrors.message.length > 0
-                ? "contact-me__form--input error"
-                : "contact-me__form--input"
-            }
-            name="message"
-            type="text"
-            placeholder="Type something…"
-            value={message}
-            noValidate
-            onChange={this.handleChange}
-          ></textarea>
 
           {formErrors.message.length > 0 && (
             <span className="errorMessage">{formErrors.message}</span>
