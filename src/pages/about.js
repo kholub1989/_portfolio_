@@ -146,6 +146,8 @@ function About({ _data }) {
           <img
             src={"/images/krisztian-holub.jpg"}
             alt="avatar"
+            width="420"
+            height="540"
             className="about__img"
             ref={image}
           />
