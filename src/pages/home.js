@@ -58,9 +58,9 @@ function Home({ _data }) {
               things and
               <span className="heading-primary--blue">I love what I do.</span>
             </h1>
-            <h3 className="heading-tertiary" ref={h3}>
+            <h2 className="heading-tertiary" ref={h3}>
               {_data.occupation}
-            </h3>
+            </h2>
           </div>
           <div className="home__logo" ref={logo}>
             <Logo />

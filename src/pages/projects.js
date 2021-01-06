@@ -21,9 +21,9 @@ function Projects({ _data }) {
           </a>
         </div>
         <div className="project-desc">
-          <h2 className="heading-desc-title" ref={h2}>
+          <h3 className="heading-desc-title" ref={h2}>
             {p.title}
-          </h2>
+          </h3>
           <h4 className="heading-sub-title">{p.using}</h4>
           <p className="paragraph">{p.description}</p>
           <a className="btn" target="_blanc" href={p.urlGit}>
