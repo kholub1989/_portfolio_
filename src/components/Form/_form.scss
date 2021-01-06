@@ -2,6 +2,14 @@
   @include container;
   max-width: 70%;
 
+  @include respound(tab-port) {
+    max-width: 80%;
+  }
+
+  @include respound(phone) {
+    max-width: 100%;
+  }
+
   &-box {
     margin-bottom: 2.5rem;
   }
