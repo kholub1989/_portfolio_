@@ -47,6 +47,7 @@ function Footer({ _data }) {
                     target="_blank"
                     rel="noreferrer"
                     href={item.url}
+                    aria-label={item.name}
                   >
                     <svg className="footer__icon">
                       <use xlinkHref={item.icon}></use>

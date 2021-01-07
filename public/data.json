@@ -19,12 +19,12 @@
     "resume-google-drive": "https://drive.google.com/drive/u/0/folders/1Wsp3MLh_Oeshm-5_k3OT1WMcHqFn3G-M",
     "socialLinks": [
       {
-        "name": "linkedin-icon",
+        "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/kholub1989/",
         "icon": "/images/sprite.svg#linkedin"
       },
       {
-        "name": "github-icon",
+        "name": "GitHub",
         "url": "https://github.com/kholub1989",
         "icon": "/images/sprite.svg#github"
       }
