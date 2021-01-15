@@ -26,12 +26,16 @@ function Projects({ _data }) {
           </h3>
           <h4 className="heading-sub-title">{p.using}</h4>
           <p className="paragraph">{p.description}</p>
-          <a className="btn" target="_blanc" href={p.urlGit}>
-            View source
-          </a>
-          <a className="btn" target="_blanc" href={p.url}>
-            Try it Live
-          </a>
+          {p.urlGit !== "" ? (
+            <a className="btn" target="_blanc" href={p.urlGit}>
+              View source
+            </a>
+          ) : null}
+          {p.url !== "" ? (
+            <a className="btn" target="_blanc" href={p.url}>
+              Try it Live
+            </a>
+          ) : null}
         </div>
       </div>
     );

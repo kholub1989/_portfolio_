@@ -101,7 +101,7 @@
         "using": "PHP, CRUD, CSS 3, HTML 5",
         "description": "This project contains the most essential functionalities of an ordinary blogging system should have. Home Page, Control Panel.",
         "image": "/images/cms.jpg",
-        "url": "https://github.com/kholub1989/CMS-Project-Blogging-System",
+        "url": "",
         "urlGit": "https://github.com/kholub1989/CMS-Project-Blogging-System"
       },
       {
@@ -117,7 +117,7 @@
         "using": "JavaScript, React, Node.js, Bootstrap 4",
         "description": "Twitter clone application and API",
         "image": "/images/warbler.jpg",
-        "url": "https://github.com/kholub1989/Warbler",
+        "url": "",
         "urlGit": "https://github.com/kholub1989/Warbler"
       },
       {
@@ -125,7 +125,7 @@
         "using": "JavaScript, Html, Css",
         "description": "Pacman game made with JS",
         "image": "/images/pacman.jpg",
-        "url": "https://github.com/kholub1989/Pacman",
+        "url": "",
         "urlGit": "https://github.com/kholub1989/Pacman"
       }
     ]
