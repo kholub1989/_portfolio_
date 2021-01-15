@@ -33,6 +33,14 @@
   "portfolio": {
     "projects": [
       {
+        "title": "Amazon-clone - Full E-Commerce Project",
+        "using": "MERN stack (MongoDB, ExpressJS, React and Node.JS)",
+        "description": "React and Node project, building a fully-functional e-commerce website exactly like amazon.",
+        "image": "/images/amazon-clone-full-e-com.jpg",
+        "url": "",
+        "urlGit": "https://github.com/kholub1989/amazon-clone-full-ecomm"
+      },
+      {
         "title": "COVID-19 Tracker",
         "using": "React Hooks, Material UI, Charts.js",
         "description": "Tracker application with charts and visualizations.",
