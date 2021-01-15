@@ -33,7 +33,7 @@
   "portfolio": {
     "projects": [
       {
-        "title": "Amazon-clone - Full E-Commerce Project",
+        "title": "Amazon-clone - Full E-Commerce",
         "using": "MERN stack (MongoDB, ExpressJS, React and Node.JS)",
         "description": "React and Node project, building a fully-functional e-commerce website exactly like amazon.",
         "image": "/images/amazon-clone-full-e-com.jpg",
