@@ -33,6 +33,14 @@
   "portfolio": {
     "projects": [
       {
+        "title": "CROW Clothing",
+        "using": "React, Redux, Node.js, Firebase, Stripe, SCSS,",
+        "description": "E-commerce application for a fictional fashion company.",
+        "image": "/images/crowclothing.jpg",
+        "url": "https://crowclothing.herokuapp.com/",
+        "urlGit": "https://github.com/kholub1989/crow-clothing-e-commerce"
+      },
+      {
         "title": "Amazon-clone - Full E-Commerce",
         "using": "MERN stack (MongoDB, ExpressJS, React and Node.JS)",
         "description": "React and Node project, building a fully-functional e-commerce website exactly like amazon.",
