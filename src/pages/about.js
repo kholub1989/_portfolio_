@@ -144,7 +144,7 @@ function About({ _data }) {
             </p>
           </div>
           <img
-            src={"/images/krisztian-holub.jpg"}
+            src={"/images/krisztian-holub.webp"}
             alt="avatar"
             width="420"
             height="540"
