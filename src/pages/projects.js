@@ -43,11 +43,11 @@ function Projects({ _data }) {
 
   const [projectsToShow, setProjectsToShow] = useState([]);
   const [showMore, setShowMore] = useState(true);
-  const [next, setNext] = useState(2);
+  const ref = useRef(projectsPerPage);
 
   const loopProjects = (start, end) => {
     const sliceProjects = projects.slice(start, end);
-    projectsArr = [...projectsArr, ...sliceProjects];
+    projectsArr = projectsArr.concat(sliceProjects);
     setProjectsToShow(projectsArr);
     if (projects.length === projectsArr.length) {
       setShowMore(false);
@@ -100,8 +100,8 @@ function Projects({ _data }) {
   }, [h2, proj]);
 
   const handelClickShowMore = () => {
-    loopProjects(next, next + projectsPerPage);
-    setNext(next + projectsPerPage);
+    loopProjects(ref.current, ref.current + projectsPerPage);
+    ref.current += projectsPerPage;
     scroll.scrollMore(350);
   };
 
