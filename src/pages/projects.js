@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createElement } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../main.scss";
 import { animateScroll as scroll } from "react-scroll";
 import { gsap } from "gsap";
