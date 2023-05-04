@@ -21,24 +21,24 @@ function Home({ _data }) {
     gsap.from(h3.current, {
       y: 100,
       opacity: 0,
-      duration: 2,
-      delay: 0.5,
-      ease: Power3.easeInOut,
+      duration: 1,
+      delay: 0.8,
+      ease: Power3.easeOut,
     });
     gsap.from(logo.current, {
-      scale: 0.5,
+      scale: 0.2,
       y: 200,
       opacity: 0,
       duration: 1.5,
-      delay: 1.5,
+      delay: 0.8,
       ease: Power3.easeOut,
     });
     gsap.from(scrollDowIcon.current, {
       scale: 0,
       y: 100,
       opacity: 0,
-      duration: 1.5,
-      delay: 1.5,
+      duration: 1,
+      delay: 1,
       ease: Power3.easeOut,
     });
   }, [h1, h3, logo, scrollDowIcon]);
@@ -50,13 +50,13 @@ function Home({ _data }) {
           <div className="home__text">
             <h1 className="heading-primary" ref={h1}>
               <span className="heading-primary--white">Hi, </span> <br />
-              I’m <span className="heading-primary--blue">{_data.name} </span>
+              I'm <span className="heading-primary--blue">{_data.name} </span>
               <br />I <span className="heading-primary--blue">design </span>and
-              <span className="heading-primary--blue">build </span>
+              <span className="heading-primary--blue"> build </span>
               <span className="heading-primary--white">beautiful </span>
               <br />
               things and
-              <span className="heading-primary--blue">I love what I do.</span>
+              <span className="heading-primary--blue"> I love what I do.</span>
             </h1>
             <h2 className="heading-tertiary" ref={h3}>
               {_data.occupation}

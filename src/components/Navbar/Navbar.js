@@ -119,13 +119,16 @@ const Navbar = () => {
     gsap.from(header.current, {
       opacity: 0,
       y: -50,
-      duration: 1.5,
+      duration: 1.2,
       ease: Power3.easeOut,
     });
     gsap.to(customScroll.current, {
       value: 100,
       ease: "none",
-      scrollTrigger: { scrub: 0.3, once: true },
+      scrollTrigger: { 
+        scrub: 0.3, 
+        once: true 
+      },
     });
   }, [header, customScroll]);
 

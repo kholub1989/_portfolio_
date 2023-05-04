@@ -1,6 +1,6 @@
 {
-  "name": "portfolio_v2",
-  "version": "0.1.0",
+  "name": "portfolio_v3",
+  "version": "0.3.1",
   "private": true,
   "dependencies": {
     "@csstools/normalize.css": "^11.0.1",
