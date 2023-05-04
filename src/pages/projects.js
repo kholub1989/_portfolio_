@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, createElement } from "react";
 import "../main.scss";
 import { animateScroll as scroll } from "react-scroll";
 import { gsap } from "gsap";
@@ -6,18 +6,53 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projectsPerPage = 2;
 let projectsArr = [];
+let imageUrlArr = [];
+let imageCopyRun = false;
+let start, finish;
 
 function Projects({ _data }) {
   const h2 = useRef(null);
   const proj = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
 
+  const preloadImage = (end) => {
+    return (() => {
+      if (!imageCopyRun) {
+        imageCopyRun = true;
+        start = 0;
+        finish = end*=2;
+        _data.projects.forEach((p) => {
+          imageUrlArr.push(p.image);
+        });
+      }
+
+      for (let i = start; i < imageUrlArr.length; i++) {
+        if (i < finish) {
+          let link = document.createElement("link");
+          link.rel = "preload";
+          link.href = imageUrlArr[i];
+          link.as = "image";
+
+          document.head.appendChild(link);
+        }
+      }
+
+      start = finish;
+      finish = finish + 2;  // by two
+    })();
+  };
+
   const projects = _data.projects.map((p) => {
     return (
       <div className="projects__main--project  bounceInLeft" key={p.title}>
         <div className="project-img">
           <a href={p.url ? p.url : p.urlGit} target="”_blank”">
-            <img width="640" height="360" src={p.image} alt={p.title} />
+            <img
+              width="640"
+              height="360"
+              alt={p.text}
+              src={p.image}
+            />
           </a>
         </div>
         <div className="project-desc">
@@ -46,6 +81,7 @@ function Projects({ _data }) {
   const ref = useRef(projectsPerPage);
 
   const loopProjects = (start, end) => {
+    preloadImage(end);
     const sliceProjects = projects.slice(start, end);
     projectsArr = projectsArr.concat(sliceProjects);
     setProjectsToShow(projectsArr);
