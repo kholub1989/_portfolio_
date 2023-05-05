@@ -1,5 +1,7 @@
 # PORTFOLIO_V3
 
+![alt text](https://ibb.co/ZJD8MsX)
+
 ### `yarn start`
 
 Runs the app in the development mode.\
