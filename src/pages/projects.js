@@ -46,7 +46,7 @@ function Projects({ _data }) {
     return (
       <div className="projects__main--project  bounceInLeft" key={p.title}>
         <div className="project-img">
-          <a href={p.url ? p.url : p.urlGit} target="”_blank”">
+          <a className="project-img--link" href={p.url ? p.url : p.urlGit} target="”_blank”">
             <img
               width="640"
               height="360"

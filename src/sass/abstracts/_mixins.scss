@@ -72,6 +72,19 @@ $breakpoint:
   }
 }
 
+@mixin focusVisible {
+  &:focus-visible {
+    outline-color: $color-primary;
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 3px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    transition: none;
+  }
+}
+
 @mixin absCenter {
   position: absolute;
   top: 50%;

@@ -12,14 +12,14 @@
 .loader-div {
   width: calc(100% - 16px);
   height: calc(100% - 16px);
-  border: 8px solid $color-primary-light2;
+  border: 8px solid var(--themeBgColorTwo);
   border-radius: 50%;
   border-top: 8px solid $color-primary;
   animation: rotate 2s linear infinite;
 
   @include respound(phone) {
-    border: 4px solid $color-primary-light2;
-    border-top: 4px solid $color-primary;
+    border: 4px solid var(--themeBgColorTwo);
+    border-top: 4px solid var(--themePrimaryTextColor);
   }
 }
 

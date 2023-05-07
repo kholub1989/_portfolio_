@@ -13,8 +13,8 @@
   width: 24px;
   height: 24px;
   margin-left: -12px;
-  border-left: 1px solid $color-white;
-  border-bottom: 1px solid $color-white;
+  border-left: 1px solid var(--themeSimpleTextColor);
+  border-bottom: 1px solid var(--themeSimpleTextColor);
   transform: rotate(-45deg);
   animation: scroll-down-mobile 2s infinite;
 }
@@ -39,7 +39,7 @@
   height: 3.5rem;
   width: 2rem;
   background-color: transparent;
-  border: 2px solid $color-white;
+  border: 2px solid var(--themeSimpleTextColor);
   border-radius: 1.5rem;
 }
 

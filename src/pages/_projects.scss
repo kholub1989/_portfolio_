@@ -7,7 +7,7 @@
 }
 
 .projects {
-  @include respound(tab-land) {
+  @include respound(phone) {
     @include u-margin-top-big;
   }
 
@@ -28,38 +28,43 @@
     width: 100%;
     @include u-margin-bottom-medium;
 
-    @include respound(tab-land) {
+    @include respound(phone) {
       align-items: center;
       flex-direction: column;
     }
+  }
 
-    & > .project-img {
-      width: 40%;
+  .project-img {
+    width: 40%;
 
-      @include respound(tab-land) {
+    &--link {
+      @include focusVisible;
+    }
+
+    @include respound(phone) {
+      width: 100%;
+    }
+
+    & > a img {
+      width: 85%;
+      height: 100%;
+
+      @include respound(phone) {
         width: 100%;
-      }
-
-      & > a img {
-        width: 85%;
-        height: 100%;
-
-        @include respound(tab-land) {
-          width: 100%;
-        }
       }
     }
-    & > .project-desc {
-      width: 60%;
-      padding-left: 5rem;
+  }
+  
+  .project-desc {
+    width: 60%;
+    padding-left: 5rem;
 
-      @include respound(tab-land) {
-        width: 100%;
-      }
+    @include respound(phone) {
+      width: 100%;
+    }
 
-      @include respound(tab-port) {
-        padding-left: 0;
-      }
+    @include respound(tab-port) {
+      padding-left: 0;
     }
   }
 }

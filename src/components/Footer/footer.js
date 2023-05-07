@@ -37,7 +37,7 @@ function Footer({ _data }) {
           Handcrafted By Me In {new Date().getFullYear()} &copy;
         </p>
         <div className="footer__social">
-          <p className="footer__social--text paragraph">Let’s Be Friends</p>
+          <p className="footer__social--text paragraph">Let's Be Friends</p>
           <ul className="footer__list hover-target">
             {_data.main.socialLinks.map((item) => {
               return (

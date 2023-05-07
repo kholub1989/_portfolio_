@@ -34,14 +34,16 @@
   }
 
   &__link {
-    color: white;
+    color: var(--themeSimpleTextColor);
     text-decoration: none;
+
+    @include focusVisible;
   }
 
   &__icon {
     width: 3.5rem;
     height: 3.5rem;
-    fill: $color-white;
+    fill: var(--themeSimpleTextColor);
     transition: all 0.2s ease-in;
 
     &:hover {

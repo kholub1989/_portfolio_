@@ -50,7 +50,7 @@
     max-width: 35rem;
     height: auto;
     border-radius: 50% 0px;
-    border: 2px solid $color-primary;
+    border: 2px solid var(--themePrimaryTextColor);
     user-select: none;
     pointer-events: none;
 
