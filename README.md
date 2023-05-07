@@ -1,6 +1,7 @@
 # PORTFOLIO_V3
 
-![alt text](https://i.ibb.co/kyC8SnB/portfolio.png)
+![alt text](https://i.ibb.co/Mh2YGXH/portfolio-dark.png)
+![alt text](https://i.ibb.co/DGK3YSf/portfolio-light.png)
 
 ### `yarn start`
 
