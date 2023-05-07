@@ -11,9 +11,6 @@ const ThemeBtn = ({ _data }) => {
   let sunAriaLabel = _data.main.toggleIcons[0].ariaLabel;
   let moonAriaLabel = _data.main.toggleIcons[1].ariaLabel;
 
-  // console.log(sun);
-  // console.log(moon);
-
   return (
     <button 
       className="btn-theme" 
