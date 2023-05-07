@@ -1,0 +1,31 @@
+.nav__item--theme {
+
+  @include respound(phone) {
+    padding: 0 1.5rem 0 0;
+  }
+}
+
+.btn-theme {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50% !important;
+  background-color: $color-primary;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  @include focusVisible;
+  transition: all 0.2s ease-in;
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    fill: $color-white;
+    transition: all 0.2s ease-in;
+  }
+}

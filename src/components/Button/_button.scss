@@ -1,4 +1,5 @@
 .btn {
+  @include focusVisible;
   animation: moveInBottom 1.5s ease;
   animation-fill-mode: backwards;
   animation-delay: 0.5s;
@@ -6,87 +7,90 @@
   &,
   &:link,
   &:visited {
-    color: $color-white;
+    color: var(--themeSimpleTextColor);
     text-transform: uppercase;
     text-decoration: none;
     font-size: 1.2rem;
     padding: 0.8rem 2rem;
     margin: 2rem 2rem 0 0;
     display: inline-block;
-    border: 2px solid $color-white;
+    border: 2px solid var(--themeSimpleTextColor);
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: color 0.3s, border 0.3s, background-color 0.3s;
   }
 
   &:hover {
-    background-color: $color-white;
-    color: $color-primary-dark;
+    background-color: var(--themeSimpleTextColor);
+    color: var(--themeBtnColor);
   }
 }
 
 .btn-show-more {
-  color: $color-white;
+  color:var(--themeSimpleTextColor);
   text-transform: lowercase;
   font-size: 1rem;
   margin: 0 auto;
   padding: 0.5em 1.5em;
-  border: 2px solid $color-white;
+  border: 2px solid var(--themeSimpleTextColor);
   border-radius: 0.5rem;
   background: transparent;
   cursor: pointer;
   outline: none;
-  transition: all 0.3s;
+  @include focusVisible;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
 
   &:hover {
-    color: $color-white;
+    color: $color-primary-dark;
     background-color: $color-primary;
     border-color: $color-primary;
   }
 }
 
 .btn-form {
-  color: $color-white;
+  color: var(--themeSimpleTextColor);
   text-transform: uppercase;
   padding: 0.5rem 2rem;
   // temp padding
   margin-left: 2rem;
-  border: 2px solid $color-white;
+  border: 2px solid var(--themeSimpleTextColor);
   border-radius: 0.5rem;
   background-color: transparent;
   cursor: pointer;
-  transition: all 0.2s;
+  @include focusVisible;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
 
   &:hover {
-    background-color: $color-white;
-    color: $color-primary-dark;
+    background-color: var(--themeSimpleTextColor);
+    color: var(--themeBtnColor);
   }
 
   &:disabled,
   &[disabled] {
     background-color: transparent;
-    color: $color-white;
+    color: var(--themeSimpleTextColor);
     opacity: 0.2;
   }
 }
 
 .btn-link {
-  color: $color-white;
+  color: var(--themeSimpleTextColor);
   display: inline-block;
   text-decoration: none;
   border-bottom: 0.2rem solid $color-primary;
-  transition: all 0.2s;
+  @include focusVisible;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
 
   &:hover {
     color: $color-primary;
     border-bottom: 0.2rem solid $color-primary;
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    // box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
     transform: translateY(-2px);
   }
 
   &:active {
     border-bottom: 0.2rem solid $color-primary;
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    // box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
     transform: translateY(0);
   }
 }

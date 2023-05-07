@@ -28,6 +28,18 @@
         "url": "https://github.com/kholub1989",
         "icon": "/images/sprite.svg#github"
       }
+    ],
+    "toggleIcons": [
+      {
+        "name": "Sun",
+        "icon": "/images/sprite.svg#sun",
+        "ariaLabel" : "Use Dark Mode"
+      },
+      {
+        "name": "Moon",
+        "icon": "/images/sprite.svg#moon",
+        "ariaLabel" : "Use Light Mode"
+      }
     ]
   },
   "portfolio": {

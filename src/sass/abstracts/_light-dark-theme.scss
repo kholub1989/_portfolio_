@@ -1,0 +1,70 @@
+@import "./variables";
+
+$themes: (
+  themeBgColor: (
+    darkTheme: $color-primary-dark,
+    lightTheme: $color-primary-light
+  ),
+  themeBgColorOne: (
+    darkTheme: $color-primary-dark-light,
+    lightTheme: $color-white
+  ),
+  themeBgColorTwo: (
+    darkTheme: $color-primary-two-dark-light,
+    lightTheme: $color-primary-two-light-dark
+  ),
+  themeSimpleTextColor: (
+    darkTheme: $color-white,
+    lightTheme: $color-black
+  ),
+  themeSimpleReverseTextColor: (
+    darkTheme: $color-black,
+    lightTheme: $color-white
+  ),
+  themePrimaryTextColor: (
+    darkTheme: $color-primary,
+    lightTheme: $color-primary-two
+  ),
+  themePrimaryHeadingColor: (
+    darkTheme: $color-white,
+    lightTheme: $color-primary
+  ),
+  themeGreyToBlackColor: (
+    darkTheme: $color-grey-dark,
+    lightTheme: $color-black
+  ),
+  themePrimaryHeadingBgColor: (
+    darkTheme: $color-unset,
+    lightTheme: $color-primary-dark
+  ),
+  themePrimaryReverseTextColor: (
+    darkTheme: $color-primary-two,
+    lightTheme: $color-primary
+  ),
+  themeBtnColor: (
+    darkTheme: $color-primary-dark,
+    lightTheme: $color-white
+  ),
+  themeBoxShadow: (
+    darkTheme: $color-black,
+    lightTheme: $color-black-two
+  ),
+);
+
+@mixin styles($mode) {
+  @each $key, $map in $themes {
+    @each $prop, $color in $map {
+      @if $prop == $mode {
+        --#{$key}: #{$color};
+      }
+    }
+  }
+}
+
+.dark-mode {
+  @include styles("darkTheme");
+}
+
+.light-mode {
+  @include styles("lightTheme");
+}

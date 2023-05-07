@@ -3,8 +3,10 @@
   left: 0;
   top: -0.2rem;
   width: 100%;
-  background-color: $color-primary-light;
-  box-shadow: 0px 2px 4px 0px $color-black;
+  // background-color: var(--themeBgColorOne);
+  // background-color: $color-primary-two-light-dark;
+  background-color: var(--themeBgColor);
+  box-shadow: 0px 2px 6px 0px var(--themeBoxShadow);
   z-index: 999;
 
   &__wrapper {
@@ -18,13 +20,20 @@
 
   &__wrapper--link {
     cursor: pointer;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3rem;
+    width: 3rem;
     user-select: none;
+    @include focusVisible;
   }
 }
 
 .nav {
+  &__main {
+    @include respound(tab-land) {
+      margin-left: calc(3.5rem / 2);
+    }
+  }
+
   &__list {
     display: flex;
     justify-content: center;
@@ -47,13 +56,15 @@
   &__link {
     position: relative;
     display: block;
-    color: $color-white;
+    color: var(--themeSimpleTextColor);
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: $default-font-size;
     font-weight: 400;
+    line-height: 1;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.2s ease-in-out;
+    @include focusVisible;
+    // transition: all 0.2s ease-in-out;
 
     &.nav-active {
       color: $color-primary;
@@ -61,17 +72,22 @@
   }
 }
 
+.burger-menu-wrapper {
+  width: 3rem;
+  height: 2.5rem;
+}
+
 .burger-menu {
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .burger {
   position: absolute;
-  background: $color-white;
+  background: var(--themeSimpleTextColor);
   width: 100%;
-  height: 0.2rem;
+  height: 0.25rem;
   top: 50%;
   right: 0;
   margin-top: -2px;
@@ -80,10 +96,10 @@
 
   &::before {
     position: absolute;
-    background: $color-white;
+    background: var(--themeSimpleTextColor);
     width: 3rem;
-    height: 0.2rem;
-    top: 6px;
+    height: 0.25rem;
+    top: 7px;
     content: "";
     display: block;
     border-radius: 1rem;
@@ -91,10 +107,10 @@
 
   &::after {
     position: absolute;
-    background: $color-white;
+    background: var(--themeSimpleTextColor);
     width: 3rem;
-    height: 0.2rem;
-    bottom: 6px;
+    height: 0.25rem;
+    bottom: 7px;
     content: "";
     display: block;
     border-radius: 1rem;

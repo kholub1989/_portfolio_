@@ -32,7 +32,9 @@ html {
 
 body {
   box-sizing: border-box;
-  background-color: $color-primary-dark;
+  // background-color: $color-primary-dark;
+
+  background-color: var(--themeBgColor);
 }
 
 .main {
@@ -40,18 +42,17 @@ body {
   background: linear-gradient(
       to bottom right,
       transparent 50%,
-      $color-primary-light2 0
+      var(--themeBgColorTwo) 0
     )
     100% 100%;
   background-attachment: fixed;
 
   @include respound(phone) {
-    background: $color-primary-dark;
+    background: var(--themeBgColor);
   }
 }
 
 ::selection {
-  background-color: $color-black;
   color: $color-primary;
+  background-color: $color-black;
 }
-

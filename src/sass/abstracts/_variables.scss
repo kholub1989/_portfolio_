@@ -1,10 +1,4 @@
 // COLORS
-$color-primary: #039ae5;
-$color-primary-dark: #0e1d2c;
-$color-primary-light: #112234;
-$color-primary-light2: rgba(17, 34, 52, 0.5);
-
-$color-error: #e74c3c;
 
 $color-blue-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
@@ -12,8 +6,27 @@ $color-grey-light-2: #eee;
 $color-grey-dark: rgb(112, 112, 112);
 $color-grey-dark-transparent: rgba(112, 112, 112, 0.1);
 
+// MAIN COLORS
+$color-unset: unset;
 $color-white: #fff;
 $color-black: #000;
+$color-black-two: #333;
+$color-error: #e74c3c;
+
+// DARK THEME
+$color-primary: #039ae5;
+$color-primary-dark: #0e1d2c;
+$color-primary-dark-light: #3483d8;
+$color-primary-two-dark-light: rgba(17, 34, 52, 0.5);
+
+
+// LIGHT THEME
+$color-primary-two: #112234;
+$color-primary-light: #ebedf0;
+$color-primary-light-dark: #d4d9e1;
+$color-primary-two-light-dark: rgba(212,217,225, 0.5);
+
+
 
 // FONT SIZE
 $default-font-size: 1.5rem;
