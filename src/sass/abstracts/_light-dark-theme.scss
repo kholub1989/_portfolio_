@@ -45,6 +45,10 @@ $themes: (
     darkTheme: $color-primary-dark,
     lightTheme: $color-white
   ),
+  themeBorderColor: (
+    darkTheme: $color-white,
+    lightTheme: $color-black
+  ),
   themeBoxShadow: (
     darkTheme: $color-black,
     lightTheme: $color-black-two
