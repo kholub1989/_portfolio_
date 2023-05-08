@@ -36,11 +36,6 @@ const MobileList = ({ _data, isViewportMobile }) => {
 };
 
 const List = ({ _data, isViewportMobile }) => {
-  // console.log("List", _data);
-  // console.log("isViewportMobile", isViewportMobile);
-  // console.log("isViewportMobile", _data);
-  // let _data = _data;
-
   return (
     <nav className="nav nav__main">
       <ul className="nav__list">
@@ -132,10 +127,9 @@ const List = ({ _data, isViewportMobile }) => {
 };
 
 const Navbar = ({ _data }) => {
-  // console.log("Navbar",_data);
   gsap.registerPlugin(ScrollTrigger);
   const header = useRef(null);
-  const customScroll = useRef(null);
+  const customScroll = useRef(null);  
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width:900px)").matches
   );
@@ -152,10 +146,9 @@ const Navbar = ({ _data }) => {
     });
     gsap.to(customScroll.current, {
       value: 100,
-      ease: "none",
+      // ease: "none",
       scrollTrigger: {
         scrub: 0.3,
-        once: true,
       },
     });
   }, [header, customScroll]);

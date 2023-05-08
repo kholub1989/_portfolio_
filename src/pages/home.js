@@ -66,9 +66,9 @@ function Home({ _data }) {
             <Logo />
           </div>
         </section>
-      </div>
-      <div ref={scrollDowIcon}>
-        <ScrollDownIcon />
+        <div ref={scrollDowIcon}>
+          <ScrollDownIcon />
+        </div>
       </div>
     </>
   );
