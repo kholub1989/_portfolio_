@@ -57,9 +57,8 @@ function ContactMe() {
       <section className="contact-me" id="contact-me">
         <div className="contact-me__bloc">
           <h2 className="heading-secondary" ref={h2}>
-            If you have a project that you want to get started, think you need
-            help or just want to saying
-            <span className="heading-secondary--blue">Hey.</span>
+            If you have a project that you want to get started, think you need help or just want to saying&nbsp;
+            <span className="heading-secondary--blue">&nbsp;Hey.&nbsp;</span>
           </h2>
           <div className="from-container" ref={form}>
             <Form />

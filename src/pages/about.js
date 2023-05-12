@@ -112,8 +112,8 @@ function About({ _data }) {
     <div className="about-wrapper">
       <section className="about">
         <h2 className="heading-secondary" ref={h2}>
-          I build modern experiences for humans with
-          <span className="heading-secondary--blue">Love.</span>
+          I build modern experiences for humans with&nbsp;
+          <span className="heading-secondary--blue">&nbsp;Love.&nbsp;</span>
         </h2>
         <div className="about__main">
           <div className="about__text-box">

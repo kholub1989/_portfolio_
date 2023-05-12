@@ -35,6 +35,7 @@ body {
   font-family: "Lato", sans-serif;
   font-size: 2rem;
   font-weight: 300;
+  line-height: 1.2;
   text-align: center;
 
   &--blue {
@@ -43,6 +44,7 @@ body {
     font-weight: 100;
     font-style: italic;
     letter-spacing: 0.2rem;
+    background-color: var(--themePrimaryHeadingBgColor);
   }
 }
 
@@ -79,6 +81,9 @@ body {
   font-size: 2rem;
   font-weight: 100;
   letter-spacing: 0.1rem;
+  display: var(--themeBlock);
+  background-color: var(--themePrimaryHeadingBgColor);
+  padding: 0 var(--themeSpace);
 }
 
 .paragraph {

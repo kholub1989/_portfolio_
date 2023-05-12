@@ -146,7 +146,8 @@ function Projects({ _data }) {
       <section className="projects" id="projects">
         <div className="projects__bloc">
           <h2 className="heading-secondary" ref={h2}>
-            My recent <span className="heading-secondary--blue">Projects.</span>
+            My recent&nbsp;
+            <span className="heading-secondary--blue">&nbsp;Projects.&nbsp;</span>
           </h2>
           <div className="projects__main" ref={proj}>
             {projectsToShow}

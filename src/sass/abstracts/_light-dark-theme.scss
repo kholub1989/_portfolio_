@@ -53,6 +53,15 @@ $themes: (
     darkTheme: $color-black,
     lightTheme: $color-black-two
   ),
+  themeBlock: (
+    darkTheme: $block,
+    lightTheme: $inline-block
+  ),
+  themeSpace: (
+    darkTheme: $space-0,
+    lightTheme: $space-050
+  ),
+
 );
 
 @mixin styles($mode) {
