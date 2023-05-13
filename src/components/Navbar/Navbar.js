@@ -6,8 +6,17 @@ import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ThemeBtn from "../LightDarkTheme/ThemeBtn";
 
-const MobileList = ({ _data, isViewportMobile }) => {
+const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   const [active, setActive] = useState(false);
+  let logoEl = document.querySelector(".header__wrapper--link");
+
+  if (active && isPhone) {
+    logoEl.classList.add("hide-element");
+  } else {
+    if (!!logoEl) {
+      logoEl.classList.remove("hide-element");
+    }
+  }
 
   return (
     <>
@@ -129,14 +138,19 @@ const List = ({ _data, isViewportMobile }) => {
 const Navbar = ({ _data }) => {
   gsap.registerPlugin(ScrollTrigger);
   const header = useRef(null);
-  const customScroll = useRef(null);  
+  const customScroll = useRef(null);
+
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width:900px)").matches
   );
 
+  const [isPhone, setIsPhone] = useState(true);
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       setIsMobile(window.matchMedia("(max-width:900px)").matches);
+      setIsPhone(window.matchMedia("(max-width:400px)").matches);
+
     });
     gsap.from(header.current, {
       opacity: 0,
@@ -168,7 +182,11 @@ const Navbar = ({ _data }) => {
           <Logo />
         </Link>
         {isMobile ? (
-          <MobileList _data={_data} isViewportMobile={isMobile} />
+          <MobileList
+            _data={_data}
+            isViewportMobile={isMobile}
+            isPhone={isPhone}
+          />
         ) : (
           <List _data={_data} isViewportMobile={isMobile} />
         )}

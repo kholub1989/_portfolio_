@@ -3,8 +3,6 @@
   left: 0;
   top: -0.2rem;
   width: 100%;
-  // background-color: var(--themeBgColorOne);
-  // background-color: $color-primary-two-light-dark;
   background-color: var(--themeBgColor);
   box-shadow: 0px 2px 6px 0px var(--themeBoxShadow);
   z-index: 999;
@@ -45,7 +43,7 @@
     padding: 0 4rem 0 0;
 
     @include respound(phone) {
-      padding: 0 2.5rem 0 0;
+      padding: 0 1.25rem 0 0;
     }
 
     &:last-child {
