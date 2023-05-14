@@ -63,7 +63,20 @@
         "title": "CROW Clothing",
         "using": "React, Redux, Node.js, Firebase, Stripe, SCSS,",
         "description": "E-commerce application for a fictional fashion company.",
-        "image": "/images/crow-clothing.webp",
+        "images": {
+          "regular": {
+            "image": "/images/crow-clothing.webp"
+          },
+          "desctop": {
+            "img": "/images/crow-clothing-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/krisztian-holub-800w.webp"
+          },
+          "phone": {
+            "img": "/images/krisztian-holub-480w.webp"
+          }
+        },
         "url": "https://crowclothing.herokuapp.com/",
         "urlGit": "https://github.com/kholub1989/crow-clothing-e-commerce"
       },
