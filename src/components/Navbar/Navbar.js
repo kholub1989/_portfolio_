@@ -23,10 +23,10 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
       {active && <List _data={_data} isViewportMobile={isViewportMobile} />}
       <nav className="nav">
         <ul className="nav__list">
-          <li class="nav__item nav__item--theme">
+          <li className="nav__item nav__item--theme">
             <ThemeBtn _data={_data} />
           </li>
-          <li class="nav__item nav__item--theme">
+          <li className="nav__item nav__item--theme">
             <div className="burger-menu-wrapper">
               <div
                 className={!active ? "burger-menu" : "burger-menu menu-on"}
