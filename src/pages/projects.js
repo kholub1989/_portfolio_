@@ -46,11 +46,11 @@ function Projects({ _data }) {
     return (
       <div className="projects__main--project  bounceInLeft" key={p.title}>
         <div className="project-img">
-          <a className="project-img--link" href={p.url ? p.url : p.urlGit} target="”_blank”">
+          <a className="project-img--link" href={p.url ? p.url : p.urlGit} target="”_blank”" aria-label={p.description}>
             <img
               width="640"
               height="360"
-              alt={p.text}
+              alt={p.description}
               src={p.image}
             />
           </a>
