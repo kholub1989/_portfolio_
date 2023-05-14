@@ -143,14 +143,31 @@ function About({ _data }) {
               Because resumes are old fashioned now.
             </p>
           </div>
-          <img
-            src={"/images/krisztian-holub.webp"}
-            alt="avatar"
-            width="420"
-            height="540"
-            className="about__img"
-            ref={image}
-          />
+          <picture>
+            <source 
+              srcSet={_data.avatar.desctop.img}
+              media="(min-width: 75em)"
+              type="image/webp"
+            />
+            <source
+              srcSet={_data.avatar.tablet.img}
+              media="(min-width: 56.25em)"
+              type="image/webp"
+            />
+            <source
+              srcSet={_data.avatar.phone.img}
+              media="(min-width: 37.5em)"
+              type="image/webp"
+            />
+            <img
+              src={_data.avatar.regular.img}
+              alt="avatar"
+              width="420"
+              height="540"
+              className="about__img"
+              ref={image}
+            />
+          </picture>
         </div>
       </section>
     </div>

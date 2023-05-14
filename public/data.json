@@ -17,6 +17,20 @@
     },
     "website": "https://www.krisztianholub.com/",
     "resume-google-drive": "https://drive.google.com/drive/u/0/folders/1Wsp3MLh_Oeshm-5_k3OT1WMcHqFn3G-M",
+    "avatar": {
+      "regular": {
+        "img": "/images/krisztian-holub.webp"
+      },
+      "desctop": {
+        "img": "/images/krisztian-holub-1200w.webp"
+      },
+      "tablet": {
+        "img": "/images/krisztian-holub-800w.webp"
+      },
+      "phone": {
+        "img": "/images/krisztian-holub-480w.webp"
+      }
+    },
     "socialLinks": [
       {
         "name": "LinkedIn",
