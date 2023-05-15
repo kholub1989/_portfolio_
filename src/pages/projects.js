@@ -42,32 +42,49 @@ function Projects({ _data }) {
     })();
   };
 
-  const projects = _data.projects.map((p) => {
+  const projects = _data.projects.map((item) => {
     return (
-      <div className="projects__main--project  bounceInLeft" key={p.title}>
+      <div className="projects__main--project  bounceInLeft" key={item.title}>
         <div className="project-img">
-          <a className="project-img--link" href={p.url ? p.url : p.urlGit} target="”_blank”" aria-label={p.description}>
-            <img
-              width="640"
-              height="360"
-              alt={p.description}
-              src={p.image}
-            />
+          <a className="project-img--link" href={item.url ? item.url : item.urlGit} target="”_blank”" aria-label={item.description}>
+            <picture>
+              <source 
+                srcSet={item.images.desctop.img} 
+                media="(min-width: 75em)"
+                type="image/webp"
+              />
+              <source 
+                srcSet={item.images.tablet.img}
+                media="(min-width: 56.25em)"
+                type="image/webp"
+              />
+              <source 
+                srcSet={item.images.phone.img} 
+                media="(min-width: 37.5em)"
+                type="image/webp" 
+              />
+              <img
+                width="640"
+                height="360"
+                src={item.images.regular.img}
+                alt={item.description}
+              />
+            </picture>
           </a>
         </div>
         <div className="project-desc">
           <h3 className="heading-desc-title" ref={h2}>
-            {p.title}
+            {item.title}
           </h3>
-          <h4 className="heading-sub-title">{p.using}</h4>
-          <p className="paragraph">{p.description}</p>
-          {p.urlGit !== "" ? (
-            <a className="btn" target="_blanc" href={p.urlGit}>
+          <h4 className="heading-sub-title">{item.using}</h4>
+          <p className="paragraph">{item.description}</p>
+          {item.urlGit !== "" ? (
+            <a className="btn" target="_blanc" href={item.urlGit}>
               View source
             </a>
           ) : null}
-          {p.url !== "" ? (
-            <a className="btn" target="_blanc" href={p.url}>
+          {item.url !== "" ? (
+            <a className="btn" target="_blanc" href={item.url}>
               Try it Live
             </a>
           ) : null}

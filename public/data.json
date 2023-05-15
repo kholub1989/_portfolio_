@@ -65,16 +65,16 @@
         "description": "E-commerce application for a fictional fashion company.",
         "images": {
           "regular": {
-            "image": "/images/crow-clothing.webp"
+            "img": "/images/crow-clothing.webp"
           },
           "desctop": {
             "img": "/images/crow-clothing-1200w.webp"
           },
           "tablet": {
-            "img": "/images/krisztian-holub-800w.webp"
+            "img": "/images/crow-clothing-800w.webp"
           },
           "phone": {
-            "img": "/images/krisztian-holub-480w.webp"
+            "img": "/images/crow-clothing-480w.webp"
           }
         },
         "url": "https://crowclothing.herokuapp.com/",
@@ -85,7 +85,20 @@
         "title": "Amazon-clone - Full E-Commerce",
         "using": "MERN stack (MongoDB, ExpressJS, React and Node.JS)",
         "description": "React and Node project, building a fully-functional e-commerce website exactly like amazon.",
-        "image": "/images/amazon-clone-full-ecomm.webp",
+        "images": {
+          "regular": {
+            "img": "/images/amazon-clone-full-ecomm.webp"
+          },
+          "desctop": {
+            "img": "/images/amazon-clone-full-ecomm-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/amazon-clone-full-ecomm-800w.webp"
+          },
+          "phone": {
+            "img": "/images/amazon-clone-full-ecomm-480w.webp"
+          }
+        },
         "url": "",
         "urlGit": "https://github.com/kholub1989/amazon-clone-full-ecomm"
       },
@@ -94,7 +107,20 @@
         "title": "COVID-19 Tracker",
         "using": "React Hooks, Material UI, Charts.js",
         "description": "Tracker application with charts and visualizations.",
-        "image": "/images/COVID-19.webp",
+        "images": {
+          "regular": {
+            "img": "/images/COVID-19.webp"
+          },
+          "desctop": {
+            "img": "/images/COVID-19-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/COVID-19-800w.webp"
+          },
+          "phone": {
+            "img": "/images/COVID-19-480w.webp"
+          }
+        },
         "url": "https://inspiring-dubinsky-f594fc.netlify.app/",
         "urlGit": "https://github.com/kholub1989/COVID-19"
       },
@@ -103,7 +129,20 @@
         "title": "eCommerce Phone Store",
         "using": "javaScript, React, Styled Components",
         "description": "This web application is a store that can sell mobile devices.",
-        "image": "/images/eCommercePhoneStore.webp",
+        "images": {
+          "regular": {
+            "image": "/images/eCommercePhoneStore.webp"
+          },
+          "desctop": {
+            "img": "/images/eCommercePhoneStore-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/eCommercePhoneStore-800w.webp"
+          },
+          "phone": {
+            "img": "/images/eCommercePhoneStore-480w.webp"
+          }
+        },
         "url": "https://kholub1989ecommercephonestore.netlify.app/",
         "urlGit": "https://github.com/kholub1989/e-commerce-phone-store-project"
       },
@@ -112,7 +151,20 @@
         "title": "Social Media App",
         "using": "JavaScript, MongoDB, Express, Node, React, GraphQL",
         "description": "Full-stack app with implementing a GraphQL server that uses Node and Express to communicate to a MongoDB Database and fetch and persist data to the back-end.",
-        "image": "/images/social-media-app.webp",
+        "images": {
+          "regular": {
+            "img": "/images/social-media-app.webp"
+          },
+          "desctop": {
+            "img": "/images/social-media-app-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/social-media-app-800w.webp"
+          },
+          "phone": {
+            "img": "/images/social-media-app-480w.webp"
+          }
+        },
         "url": "https://lucid-cray-0e02b8.netlify.app/",
         "urlGit": "https://github.com/kholub1989/social-media-app"
       },
@@ -121,7 +173,20 @@
         "title": "React Colors App",
         "using": "JavaScript, React, Hooks, Context, NextJS, Router",
         "description": "Clone of websites like Flat UI Colors and Material UI Colors.",
-        "image": "/images/reactcolors.webp",
+        "images": {
+          "regular": {
+            "img": "/images/reactcolors.webp"
+          },
+          "desctop": {
+            "img": "/images/reactcolors-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/reactcolors-800w.webp"
+          },
+          "phone": {
+            "img": "/images/reactcolors-480w.webp"
+          }
+        },
         "url": "https://zen-almeida-c5214c.netlify.app/",
         "urlGit": "https://github.com/kholub1989/react-colors-project"
       },
@@ -130,7 +195,20 @@
         "title": "Dad Jokes",
         "using": "Java Script, React, Axios, uuid, RESTful routing",
         "description": "This web application displays a random Dad Joke which you can rate.",
-        "image": "/images/dadjokes.webp",
+        "images": {
+          "regular": {
+            "img": "/images/dadjokes.webp"
+          },
+          "desctop": {
+            "img": "/images/dadjokes-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/dadjokes-800w.webp"
+          },
+          "phone": {
+            "img": "/images/dadjokes-480w.webp"
+          }
+        },
         "url": "https://laughing-hugle-1020a6.netlify.app/",
         "urlGit": "https://github.com/kholub1989/dad-jokes-app"
       },
@@ -139,7 +217,20 @@
         "title": "YelpCamp",
         "using": "VANILLA JS, Node.js, Express, MongoDB, RESTful routing, Bootstrap 4",
         "description": "Is a full-stack web dev project for searching campgrounds. The app has user authentication and authorization features, functionality is adding campground posts, comments, and likes.",
-        "image": "/images/yelpCamp.webp",
+        "images": {
+          "regular": {
+            "img": "/images/yelpCamp.webp"
+          },
+          "desctop": {
+            "img": "/images/yelpCamp-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/yelpCamp-800w.webp"
+          },
+          "phone": {
+            "img": "/images/yelpCamp-480w.webp"
+          }
+        },
         "url": "https://young-taiga-22812.herokuapp.com/",
         "urlGit": "https://github.com/kholub1989/yelpCamp"
       },
@@ -148,7 +239,20 @@
         "title": "CO2 Dashboard",
         "using": "JavaScript, D3.js",
         "description": "A comprehensive dashboard consisting maps, pie chart and bar chart to visualize CO2 emissions across the world.",
-        "image": "/images/CO2Dashboard.webp",
+        "images": {
+          "regular": {
+            "img": "/images/cms.webp"
+          },
+          "desctop": {
+            "img": "/images/CO2Dashboard-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/CO2Dashboard-800w.webp"
+          },
+          "phone": {
+            "img": "/images/CO2Dashboard-480w.webp"
+          }
+        },
         "url": "https://laughing-torvalds-3751ea.netlify.app/",
         "urlGit": "https://github.com/kholub1989/d3co2dashboard"
       },
@@ -157,7 +261,20 @@
         "title": "Blogging System",
         "using": "PHP, CRUD, CSS 3, HTML 5",
         "description": "This project contains the most essential functionalities of an ordinary blogging system should have. Home Page, Control Panel.",
-        "image": "/images/cms.webp",
+        "images": {
+          "regular": {
+            "img": "/images/cms.webp"
+          },
+          "desctop": {
+            "img": "/images/cms-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/cms-800w.webp"
+          },
+          "phone": {
+            "img": "/images/cms-480w.webp"
+          }
+        },
         "url": "",
         "urlGit": "https://github.com/kholub1989/CMS-Project-Blogging-System"
       },
@@ -166,7 +283,20 @@
         "title": "Tetris",
         "using": "JavaScript, React, Hooks, Styled Components.",
         "description": "Classic tetris game built with React.",
-        "image": "/images/tetrisgame.webp",
+        "images": {
+          "regular": {
+            "img": "/images/tetrisgame.webp"
+          },
+          "desctop": {
+            "img": "/images/tetrisgame-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/tetrisgame-800w.webp"
+          },
+          "phone": {
+            "img": "/images/tetrisgame-480w.webp"
+          }
+        },
         "url": "https://wonderful-pike-11d450.netlify.app/",
         "urlGit": "https://github.com/kholub1989/tetris-game"
       },
@@ -175,7 +305,20 @@
         "title": "Warbler",
         "using": "JavaScript, React, Node.js, Bootstrap 4",
         "description": "Twitter clone application and API",
-        "image": "/images/warbler.webp",
+        "images": {
+          "regular": {
+            "img": "/images/warbler.webp"
+          },
+          "desctop": {
+            "img": "/images/warbler-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/warbler-800w.webp"
+          },
+          "phone": {
+            "img": "/images/warbler-480w.webp"
+          }
+        },
         "url": "",
         "urlGit": "https://github.com/kholub1989/Warbler"
       },
@@ -184,7 +327,20 @@
         "title": "Pacman",
         "using": "JavaScript, Html, Css",
         "description": "Pacman game made with JS",
-        "image": "/images/pacman.webp",
+        "images": {
+          "regular": {
+            "img": "/images/pacman.webp"
+          },
+          "desctop": {
+            "img": "/images/pacman-1200w.webp"
+          },
+          "tablet": {
+            "img": "/images/pacman-800w.webp"
+          },
+          "phone": {
+            "img": "/images/pacman-480w.webp"
+          }
+        },
         "url": "",
         "urlGit": "https://github.com/kholub1989/Pacman"
       }
