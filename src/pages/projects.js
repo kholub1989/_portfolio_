@@ -42,7 +42,8 @@ function Projects({ _data }) {
     })();
   };
 
-  const projects = _data.projects.map((item) => {
+  const projects = _data.projects.map((item, index) => {
+    let loading = (index === 1) ? "lazy" : "";
     return (
       <div className="projects__main--project  bounceInLeft" key={item.title}>
         <div className="project-img">
@@ -68,6 +69,7 @@ function Projects({ _data }) {
                 height="360"
                 src={item.images.regular.img}
                 alt={item.description}
+                loading={loading}
               />
             </picture>
           </a>
