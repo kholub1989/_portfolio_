@@ -1,6 +1,8 @@
 # PORTFOLIO_V3
 
+## Dark theme
 ![alt text](https://i.ibb.co/Mh2YGXH/portfolio-dark.png)
+## Light theme
 ![alt text](https://i.ibb.co/DGK3YSf/portfolio-light.png)
 
 ### `yarn start`
