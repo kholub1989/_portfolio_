@@ -120,13 +120,25 @@ function About({ _data }) {
             <p className="paragraph" ref={p1}>
               {_data.bio}
             </p>
-            <h3 className="heading-title">Skills:</h3>
+            <h3 className="heading-title">Programming Languages, Frameworks & Database:</h3>
             <p className="paragraph" ref={p2}>
-              {_data.skills}
+              {_data.skillsPLFD}
             </p>
-            <h3 className="heading-title">Tools:</h3>
+            <h3 className="heading-title">Web Technologies:</h3>
+            <p className="paragraph" ref={p2}>
+              {_data.skillsWT}
+            </p>
+            <h3 className="heading-title">Programming Paradigms & Principles:</h3>
+            <p className="paragraph" ref={p2}>
+              {_data.skillsDP}
+            </p>
+            <h3 className="heading-title">Tools & Platforms:</h3>
+            <p className="paragraph" ref={p2}>
+              {_data.skillsTP}
+            </p>
+            <h3 className="heading-title">Design Tools:</h3>
             <p className="paragraph" ref={p3}>
-              {_data.tools}
+              {_data.designTools}
             </p>
             <p className="paragraph">
               Would you like to learn about my journey as a developer? <br />
