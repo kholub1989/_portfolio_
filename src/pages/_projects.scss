@@ -1,3 +1,5 @@
+@use "../sass/abstracts" as *;
+
 .project-wrapper {
   @include container;
   min-height: 100vh;

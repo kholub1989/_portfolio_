@@ -1,3 +1,5 @@
+@use "../../sass/abstracts" as *;
+
 .nav__item--theme {
 
   @include respound(phone) {

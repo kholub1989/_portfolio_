@@ -1,8 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { vi, test, expect } from "vitest";
 import App from "./App";
 
-test("renders learn react link", () => {
+test("renders the app shell without crashing", () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve({}) }))
+  );
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(document.querySelector(".main")).toBeInTheDocument();
 });

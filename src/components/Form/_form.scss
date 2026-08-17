@@ -1,3 +1,5 @@
+@use "../../sass/abstracts" as *;
+
 .contact-me__form {
   @include container;
   max-width: 70%;

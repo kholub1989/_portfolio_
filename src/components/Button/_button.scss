@@ -1,3 +1,5 @@
+@use "../../sass/abstracts" as *;
+
 .btn {
   @include focusVisible;
   animation: moveInBottom 1.5s ease;

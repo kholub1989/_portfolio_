@@ -1,3 +1,5 @@
+@use "../../sass/abstracts" as *;
+
 .footer {
   @include container;
   width: 100%;

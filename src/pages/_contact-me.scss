@@ -1,3 +1,5 @@
+@use "../sass/abstracts" as *;
+
 .contact-me-wrapper {
   @include container;
   min-height: calc(100vh - 10rem);

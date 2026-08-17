@@ -1,4 +1,4 @@
-import * as emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import React, { Component } from "react";
 import "../../main.scss";
 
@@ -97,7 +97,7 @@ class Form extends Component {
             "service_nudvj2o",
             "template_71p4vqr",
             templateParams,
-            "user_tQou1KFs62CHyTDBvDBiu"
+            "Hvv7sWcNVzrp-olXj"
           )
           .then(
             (result) => {

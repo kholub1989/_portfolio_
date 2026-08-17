@@ -147,24 +147,36 @@ const Navbar = ({ _data }) => {
   const [isPhone, setIsPhone] = useState(true);
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       setIsMobile(window.matchMedia("(max-width:900px)").matches);
       setIsPhone(window.matchMedia("(max-width:400px)").matches);
+    };
+    window.addEventListener("resize", handleResize);
 
+    // gsap.context + revert on cleanup keeps this StrictMode-safe: without
+    // it, React's dev-mode double-invoke of this effect creates a second
+    // tween mid-flight of the first, which corrupts the captured end state
+    // and leaves the header stuck at low opacity.
+    const ctx = gsap.context(() => {
+      gsap.from(header.current, {
+        opacity: 0,
+        y: -50,
+        duration: 1.2,
+        ease: Power3.easeOut,
+      });
+      gsap.to(customScroll.current, {
+        value: 100,
+        // ease: "none",
+        scrollTrigger: {
+          scrub: 0.3,
+        },
+      });
     });
-    gsap.from(header.current, {
-      opacity: 0,
-      y: -50,
-      duration: 1.2,
-      ease: Power3.easeOut,
-    });
-    gsap.to(customScroll.current, {
-      value: 100,
-      // ease: "none",
-      scrollTrigger: {
-        scrub: 0.3,
-      },
-    });
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      ctx.revert();
+    };
   }, [header, customScroll]);
 
   return (

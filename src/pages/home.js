@@ -11,36 +11,43 @@ function Home({ _data }) {
   const scrollDowIcon = useRef(null);
 
   useEffect(() => {
-    gsap.from(h1.current, {
-      x: -500,
-      opacity: 0,
-      duration: 1,
-      delay: 0.5,
-      ease: Power3.inOut,
+    // gsap.context + revert on cleanup keeps this StrictMode-safe (see
+    // Navbar.js for why: without it, React's dev-mode double-invoke of
+    // this effect leaves these tweens stuck mid-animation).
+    const ctx = gsap.context(() => {
+      gsap.from(h1.current, {
+        x: -500,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: Power3.inOut,
+      });
+      gsap.from(h3.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        delay: 0.8,
+        ease: Power3.easeOut,
+      });
+      gsap.from(logo.current, {
+        scale: 0.2,
+        y: 200,
+        opacity: 0,
+        duration: 1.5,
+        delay: 0.8,
+        ease: Power3.easeOut,
+      });
+      gsap.from(scrollDowIcon.current, {
+        scale: 0,
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        delay: 1,
+        ease: Power3.easeOut,
+      });
     });
-    gsap.from(h3.current, {
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      delay: 0.8,
-      ease: Power3.easeOut,
-    });
-    gsap.from(logo.current, {
-      scale: 0.2,
-      y: 200,
-      opacity: 0,
-      duration: 1.5,
-      delay: 0.8,
-      ease: Power3.easeOut,
-    });
-    gsap.from(scrollDowIcon.current, {
-      scale: 0,
-      y: 100,
-      opacity: 0,
-      duration: 1,
-      delay: 1,
-      ease: Power3.easeOut,
-    });
+
+    return () => ctx.revert();
   }, [h1, h3, logo, scrollDowIcon]);
 
   return (

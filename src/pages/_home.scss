@@ -1,3 +1,5 @@
+@use "../sass/abstracts" as *;
+
 .home-wrapper {
   @include container;
 

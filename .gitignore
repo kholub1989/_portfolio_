@@ -10,6 +10,11 @@
 
 # production
 /build
+/dist
+/dist-ssr
+
+# netlify
+.netlify
 
 # misc
 .DS_Store
@@ -17,8 +22,17 @@
 .env.development.local
 .env.test.local
 .env.production.local
+*.local
 **/.vscode/
+.idea/
+*.swp
+*.swo
+.eslintcache
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+
+# local notes
+/PLAN.md

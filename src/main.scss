@@ -1,19 +1,19 @@
-@import "./sass/abstracts/variables";
-@import "./sass/abstracts/mixins";
-@import "./sass/abstracts/light-dark-theme";
+@use "./sass/abstracts/variables";
+@use "./sass/abstracts/mixins";
+@use "./sass/abstracts/light-dark-theme";
 
-@import "./sass/base/base";
-@import "./sass//base/typography";
+@use "./sass/base/base";
+@use "./sass/base/typography";
 
-@import "./components/Loading/loading";
-@import "./components/ScrollDown/scrollDown";
-@import "./components/Navbar/navbar";
-@import "./components/Button/button";
-@import "./components/Footer/footer";
-@import "./components/Form/form";
-@import "./components/LightDarkTheme/themeBtn";
+@use "./components/Loading/loading";
+@use "./components/ScrollDown/scrollDown";
+@use "./components/Navbar/navbar";
+@use "./components/Button/button";
+@use "./components/Footer/footer";
+@use "./components/Form/form";
+@use "./components/LightDarkTheme/themeBtn";
 
-@import "./pages/home";
-@import "./pages/about";
-@import "./pages/projects";
-@import "./pages/contact-me";
+@use "./pages/home";
+@use "./pages/about";
+@use "./pages/projects";
+@use "./pages/contact-me";

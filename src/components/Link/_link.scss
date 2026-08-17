@@ -1,0 +1,28 @@
+@use "../../sass/abstracts" as *;
+
+.link {
+  display: inline-block;
+  color: var(--themeSimpleTextColor);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  border-bottom: 0.25rem solid $color-primary;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
+  @include focusVisible;
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+  }
+
+  &__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    fill: var(--themeSimpleTextColor);
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      fill: $color-primary;
+    }    
+  }
+}
