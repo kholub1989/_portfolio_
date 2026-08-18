@@ -22,39 +22,39 @@
     "resume-google-drive": "https://drive.google.com/drive/u/0/folders/1Wsp3MLh_Oeshm-5_k3OT1WMcHqFn3G-M",
     "avatar": {
       "regular": {
-        "img": "/images/krisztian-holub.webp"
+        "img": "/images/profile/krisztian-holub.webp"
       },
       "desctop": {
-        "img": "/images/krisztian-holub-1200w.webp"
+        "img": "/images/profile/krisztian-holub-1200w.webp"
       },
       "tablet": {
-        "img": "/images/krisztian-holub-800w.webp"
+        "img": "/images/profile/krisztian-holub-800w.webp"
       },
       "phone": {
-        "img": "/images/krisztian-holub-480w.webp"
+        "img": "/images/profile/krisztian-holub-480w.webp"
       }
     },
     "socialLinks": [
       {
         "name": "LinkedIn",
         "url": "https://www.linkedin.com/in/kholub1989/",
-        "icon": "/images/sprite.svg#linkedin"
+        "icon": "/images/icons/sprite.svg#linkedin"
       },
       {
         "name": "GitHub",
         "url": "https://github.com/kholub1989",
-        "icon": "/images/sprite.svg#github"
+        "icon": "/images/icons/sprite.svg#github"
       }
     ],
     "toggleIcons": [
       {
         "name": "Sun",
-        "icon": "/images/sprite.svg#sun",
+        "icon": "/images/icons/sprite.svg#sun",
         "ariaLabel" : "Use Dark Mode"
       },
       {
         "name": "Moon",
-        "icon": "/images/sprite.svg#moon",
+        "icon": "/images/icons/sprite.svg#moon",
         "ariaLabel" : "Use Light Mode"
       }
     ]
@@ -68,16 +68,16 @@
         "description": "E-commerce application for a fictional fashion company.",
         "images": {
           "regular": {
-            "img": "/images/crow-clothing.webp"
+            "img": "/images/projects/crow-clothing.webp"
           },
           "desctop": {
-            "img": "/images/crow-clothing-1200w.webp"
+            "img": "/images/projects/crow-clothing-1200w.webp"
           },
           "tablet": {
-            "img": "/images/crow-clothing-800w.webp"
+            "img": "/images/projects/crow-clothing-800w.webp"
           },
           "phone": {
-            "img": "/images/crow-clothing-480w.webp"
+            "img": "/images/projects/crow-clothing-480w.webp"
           }
         },
         "url": "https://crowclothing.herokuapp.com/",
@@ -90,16 +90,16 @@
         "description": "React and Node project, building a fully-functional e-commerce website exactly like amazon.",
         "images": {
           "regular": {
-            "img": "/images/amazon-clone-full-ecomm.webp"
+            "img": "/images/projects/amazon-clone-full-ecomm.webp"
           },
           "desctop": {
-            "img": "/images/amazon-clone-full-ecomm-1200w.webp"
+            "img": "/images/projects/amazon-clone-full-ecomm-1200w.webp"
           },
           "tablet": {
-            "img": "/images/amazon-clone-full-ecomm-800w.webp"
+            "img": "/images/projects/amazon-clone-full-ecomm-800w.webp"
           },
           "phone": {
-            "img": "/images/amazon-clone-full-ecomm-480w.webp"
+            "img": "/images/projects/amazon-clone-full-ecomm-480w.webp"
           }
         },
         "url": "",
@@ -112,16 +112,16 @@
         "description": "Tracker application with charts and visualizations.",
         "images": {
           "regular": {
-            "img": "/images/COVID-19.webp"
+            "img": "/images/projects/COVID-19.webp"
           },
           "desctop": {
-            "img": "/images/COVID-19-1200w.webp"
+            "img": "/images/projects/COVID-19-1200w.webp"
           },
           "tablet": {
-            "img": "/images/COVID-19-800w.webp"
+            "img": "/images/projects/COVID-19-800w.webp"
           },
           "phone": {
-            "img": "/images/COVID-19-480w.webp"
+            "img": "/images/projects/COVID-19-480w.webp"
           }
         },
         "url": "https://inspiring-dubinsky-f594fc.netlify.app/",
@@ -134,16 +134,16 @@
         "description": "This web application is a store that can sell mobile devices.",
         "images": {
           "regular": {
-            "img": "/images/eCommercePhoneStore.webp"
+            "img": "/images/projects/eCommercePhoneStore.webp"
           },
           "desctop": {
-            "img": "/images/eCommercePhoneStore-1200w.webp"
+            "img": "/images/projects/eCommercePhoneStore-1200w.webp"
           },
           "tablet": {
-            "img": "/images/eCommercePhoneStore-800w.webp"
+            "img": "/images/projects/eCommercePhoneStore-800w.webp"
           },
           "phone": {
-            "img": "/images/eCommercePhoneStore-480w.webp"
+            "img": "/images/projects/eCommercePhoneStore-480w.webp"
           }
         },
         "url": "https://kholub1989ecommercephonestore.netlify.app/",
@@ -156,16 +156,16 @@
         "description": "Full-stack app with implementing a GraphQL server that uses Node and Express to communicate to a MongoDB Database and fetch and persist data to the back-end.",
         "images": {
           "regular": {
-            "img": "/images/social-media-app.webp"
+            "img": "/images/projects/social-media-app.webp"
           },
           "desctop": {
-            "img": "/images/social-media-app-1200w.webp"
+            "img": "/images/projects/social-media-app-1200w.webp"
           },
           "tablet": {
-            "img": "/images/social-media-app-800w.webp"
+            "img": "/images/projects/social-media-app-800w.webp"
           },
           "phone": {
-            "img": "/images/social-media-app-480w.webp"
+            "img": "/images/projects/social-media-app-480w.webp"
           }
         },
         "url": "https://lucid-cray-0e02b8.netlify.app/",
@@ -178,16 +178,16 @@
         "description": "Clone of websites like Flat UI Colors and Material UI Colors.",
         "images": {
           "regular": {
-            "img": "/images/reactcolors.webp"
+            "img": "/images/projects/reactcolors.webp"
           },
           "desctop": {
-            "img": "/images/reactcolors-1200w.webp"
+            "img": "/images/projects/reactcolors-1200w.webp"
           },
           "tablet": {
-            "img": "/images/reactcolors-800w.webp"
+            "img": "/images/projects/reactcolors-800w.webp"
           },
           "phone": {
-            "img": "/images/reactcolors-480w.webp"
+            "img": "/images/projects/reactcolors-480w.webp"
           }
         },
         "url": "https://zen-almeida-c5214c.netlify.app/",
@@ -200,16 +200,16 @@
         "description": "This web application displays a random Dad Joke which you can rate.",
         "images": {
           "regular": {
-            "img": "/images/dadjokes.webp"
+            "img": "/images/projects/dadjokes.webp"
           },
           "desctop": {
-            "img": "/images/dadjokes-1200w.webp"
+            "img": "/images/projects/dadjokes-1200w.webp"
           },
           "tablet": {
-            "img": "/images/dadjokes-800w.webp"
+            "img": "/images/projects/dadjokes-800w.webp"
           },
           "phone": {
-            "img": "/images/dadjokes-480w.webp"
+            "img": "/images/projects/dadjokes-480w.webp"
           }
         },
         "url": "https://laughing-hugle-1020a6.netlify.app/",
@@ -222,16 +222,16 @@
         "description": "Is a full-stack web dev project for searching campgrounds. The app has user authentication and authorization features, functionality is adding campground posts, comments, and likes.",
         "images": {
           "regular": {
-            "img": "/images/yelpCamp.webp"
+            "img": "/images/projects/yelpCamp.webp"
           },
           "desctop": {
-            "img": "/images/yelpCamp-1200w.webp"
+            "img": "/images/projects/yelpCamp-1200w.webp"
           },
           "tablet": {
-            "img": "/images/yelpCamp-800w.webp"
+            "img": "/images/projects/yelpCamp-800w.webp"
           },
           "phone": {
-            "img": "/images/yelpCamp-480w.webp"
+            "img": "/images/projects/yelpCamp-480w.webp"
           }
         },
         "url": "https://young-taiga-22812.herokuapp.com/",
@@ -244,16 +244,16 @@
         "description": "A comprehensive dashboard consisting maps, pie chart and bar chart to visualize CO2 emissions across the world.",
         "images": {
           "regular": {
-            "img": "/images/cms.webp"
+            "img": "/images/projects/cms.webp"
           },
           "desctop": {
-            "img": "/images/CO2Dashboard-1200w.webp"
+            "img": "/images/projects/CO2Dashboard-1200w.webp"
           },
           "tablet": {
-            "img": "/images/CO2Dashboard-800w.webp"
+            "img": "/images/projects/CO2Dashboard-800w.webp"
           },
           "phone": {
-            "img": "/images/CO2Dashboard-480w.webp"
+            "img": "/images/projects/CO2Dashboard-480w.webp"
           }
         },
         "url": "https://laughing-torvalds-3751ea.netlify.app/",
@@ -266,16 +266,16 @@
         "description": "This project contains the most essential functionalities of an ordinary blogging system should have. Home Page, Control Panel.",
         "images": {
           "regular": {
-            "img": "/images/cms.webp"
+            "img": "/images/projects/cms.webp"
           },
           "desctop": {
-            "img": "/images/cms-1200w.webp"
+            "img": "/images/projects/cms-1200w.webp"
           },
           "tablet": {
-            "img": "/images/cms-800w.webp"
+            "img": "/images/projects/cms-800w.webp"
           },
           "phone": {
-            "img": "/images/cms-480w.webp"
+            "img": "/images/projects/cms-480w.webp"
           }
         },
         "url": "",
@@ -288,16 +288,16 @@
         "description": "Classic tetris game built with React.",
         "images": {
           "regular": {
-            "img": "/images/tetrisgame.webp"
+            "img": "/images/projects/tetrisgame.webp"
           },
           "desctop": {
-            "img": "/images/tetrisgame-1200w.webp"
+            "img": "/images/projects/tetrisgame-1200w.webp"
           },
           "tablet": {
-            "img": "/images/tetrisgame-800w.webp"
+            "img": "/images/projects/tetrisgame-800w.webp"
           },
           "phone": {
-            "img": "/images/tetrisgame-480w.webp"
+            "img": "/images/projects/tetrisgame-480w.webp"
           }
         },
         "url": "https://wonderful-pike-11d450.netlify.app/",
@@ -310,16 +310,16 @@
         "description": "Twitter clone application and API",
         "images": {
           "regular": {
-            "img": "/images/warbler.webp"
+            "img": "/images/projects/warbler.webp"
           },
           "desctop": {
-            "img": "/images/warbler-1200w.webp"
+            "img": "/images/projects/warbler-1200w.webp"
           },
           "tablet": {
-            "img": "/images/warbler-800w.webp"
+            "img": "/images/projects/warbler-800w.webp"
           },
           "phone": {
-            "img": "/images/warbler-480w.webp"
+            "img": "/images/projects/warbler-480w.webp"
           }
         },
         "url": "",
@@ -332,16 +332,16 @@
         "description": "Pacman game made with JS",
         "images": {
           "regular": {
-            "img": "/images/pacman.webp"
+            "img": "/images/projects/pacman.webp"
           },
           "desctop": {
-            "img": "/images/pacman-1200w.webp"
+            "img": "/images/projects/pacman-1200w.webp"
           },
           "tablet": {
-            "img": "/images/pacman-800w.webp"
+            "img": "/images/projects/pacman-800w.webp"
           },
           "phone": {
-            "img": "/images/pacman-480w.webp"
+            "img": "/images/projects/pacman-480w.webp"
           }
         },
         "url": "",
