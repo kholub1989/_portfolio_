@@ -5,40 +5,41 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projectsPerPage = 2;
-let projectsArr = [];
-let imageUrlArr = [];
-let imageCopyRun = false;
-let start, finish;
 
 function Projects({ _data }) {
   const h2 = useRef(null);
   const proj = useRef(null);
+  const projectsArr = useRef([]);
+  const imageUrlArr = useRef([]);
+  const imageCopyRun = useRef(false);
+  const start = useRef(0);
+  const finish = useRef(0);
   gsap.registerPlugin(ScrollTrigger);
 
   const preloadImage = (end) => {
     return (() => {
-      if (!imageCopyRun) {
-        imageCopyRun = true;
-        start = 0;
-        finish = end*=2;
+      if (!imageCopyRun.current) {
+        imageCopyRun.current = true;
+        start.current = 0;
+        finish.current = end *= 2;
         _data.projects.forEach((p) => {
-          imageUrlArr.push(p.images.regular.img);
+          imageUrlArr.current.push(p.images.regular.img);
         });
       }
 
-      for (let i = start; i < imageUrlArr.length; i++) {
-        if (i < finish) {
+      for (let i = start.current; i < imageUrlArr.current.length; i++) {
+        if (i < finish.current) {
           let link = document.createElement("link");
           link.rel = "preload";
-          link.href = imageUrlArr[i];
+          link.href = imageUrlArr.current[i];
           link.as = "image";
 
           document.head.appendChild(link);
         }
       }
 
-      start = finish;
-      finish = finish + 2;  // by two
+      start.current = finish.current;
+      finish.current = finish.current + 2; // by two
     })();
   };
 
@@ -99,12 +100,12 @@ function Projects({ _data }) {
   const [showMore, setShowMore] = useState(true);
   const ref = useRef(projectsPerPage);
 
-  const loopProjects = (start, end) => {
-    preloadImage(end);
-    const sliceProjects = projects.slice(start, end);
-    projectsArr = projectsArr.concat(sliceProjects);
-    setProjectsToShow(projectsArr);
-    if (projects.length === projectsArr.length) {
+  const loopProjects = (sliceStart, sliceEnd) => {
+    preloadImage(sliceEnd);
+    const sliceProjects = projects.slice(sliceStart, sliceEnd);
+    projectsArr.current = projectsArr.current.concat(sliceProjects);
+    setProjectsToShow(projectsArr.current);
+    if (projects.length === projectsArr.current.length) {
       setShowMore(false);
     }
   };
@@ -151,6 +152,14 @@ function Projects({ _data }) {
         },
       }
     );
+
+    return () => {
+      projectsArr.current = [];
+      imageUrlArr.current = [];
+      imageCopyRun.current = false;
+      start.current = 0;
+      finish.current = 0;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [h2, proj]);
 
