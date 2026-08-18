@@ -134,7 +134,7 @@
         "description": "This web application is a store that can sell mobile devices.",
         "images": {
           "regular": {
-            "image": "/images/eCommercePhoneStore.webp"
+            "img": "/images/eCommercePhoneStore.webp"
           },
           "desctop": {
             "img": "/images/eCommercePhoneStore-1200w.webp"

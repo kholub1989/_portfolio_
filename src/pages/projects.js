@@ -22,7 +22,7 @@ function Projects({ _data }) {
         start = 0;
         finish = end*=2;
         _data.projects.forEach((p) => {
-          imageUrlArr.push(p.image);
+          imageUrlArr.push(p.images.regular.img);
         });
       }
 
