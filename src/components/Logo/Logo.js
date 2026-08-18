@@ -3,11 +3,7 @@ import "../../main.scss";
 
 function Logo() {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 590 591"
-      alt="Krisztian Holub - pigeon logo"
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 591">
       <title>Krisztian Holub - pigeon logo</title>
       <defs>
         <linearGradient id="a" x1="0%" x2="98.481%" y1="17.365%" y2="0%">
