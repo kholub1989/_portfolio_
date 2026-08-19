@@ -22,10 +22,13 @@ function ScrollDown() {
   );
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const handleResize = () => {
       setIsMobile(window.matchMedia("(max-width:1200px)").matches);
-    });
-  });
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return <>{isMobile ? <MobileScrollDown /> : <DesktopScrollDown />}</>;
 }
 
