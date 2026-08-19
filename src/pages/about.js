@@ -7,7 +7,10 @@ function About({ _data }) {
   gsap.registerPlugin(ScrollTrigger);
   const h2 = useRef(null);
   const p1 = useRef(null);
-  const p2 = useRef(null);
+  const p2a = useRef(null);
+  const p2b = useRef(null);
+  const p2c = useRef(null);
+  const p2d = useRef(null);
   const p3 = useRef(null);
   const image = useRef(null);
 
@@ -51,7 +54,7 @@ function About({ _data }) {
       }
     );
     gsap.fromTo(
-      p2.current,
+      [p2a.current, p2b.current, p2c.current, p2d.current],
       {
         opacity: 0,
         x: -600,
@@ -106,7 +109,7 @@ function About({ _data }) {
         },
       }
     );
-  }, [h2, p1, p2, p3, image]);
+  }, [h2, p1, p2a, p2b, p2c, p2d, p3, image]);
 
   return (
     <div className="about-wrapper">
@@ -121,19 +124,19 @@ function About({ _data }) {
               {_data.bio}
             </p>
             <h3 className="heading-title">Programming Languages, Frameworks & Database:</h3>
-            <p className="paragraph" ref={p2}>
+            <p className="paragraph" ref={p2a}>
               {_data.skillsPLFD}
             </p>
             <h3 className="heading-title">Web Technologies:</h3>
-            <p className="paragraph" ref={p2}>
+            <p className="paragraph" ref={p2b}>
               {_data.skillsWT}
             </p>
             <h3 className="heading-title">Programming Paradigms & Principles:</h3>
-            <p className="paragraph" ref={p2}>
+            <p className="paragraph" ref={p2c}>
               {_data.skillsDP}
             </p>
             <h3 className="heading-title">Tools & Platforms:</h3>
-            <p className="paragraph" ref={p2}>
+            <p className="paragraph" ref={p2d}>
               {_data.skillsTP}
             </p>
             <h3 className="heading-title">Design Tools:</h3>
