@@ -48,7 +48,7 @@ function Projects({ _data }) {
     return (
       <div className="projects__main--project  bounceInLeft" key={item.title}>
         <div className="project-img">
-          <a className="project-img--link" href={item.url ? item.url : item.urlGit} target="”_blank”" aria-label={item.description}>
+          <a className="project-img--link" href={item.url ? item.url : item.urlGit} target="_blank" rel="noreferrer" aria-label={item.description}>
             <picture>
               <source 
                 srcSet={item.images.desctop.img} 
@@ -82,12 +82,12 @@ function Projects({ _data }) {
           <h4 className="heading-sub-title">{item.using}</h4>
           <p className="paragraph">{item.description}</p>
           {item.urlGit !== "" ? (
-            <a className="btn" target="_blanc" href={item.urlGit}>
+            <a className="btn" target="_blank" rel="noreferrer" href={item.urlGit}>
               View source
             </a>
           ) : null}
           {item.url !== "" ? (
-            <a className="btn" target="_blanc" href={item.url}>
+            <a className="btn" target="_blank" rel="noreferrer" href={item.url}>
               Try it Live
             </a>
           ) : null}
