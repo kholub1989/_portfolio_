@@ -73,12 +73,24 @@ function Projects({ _data }) {
           <h4 className="heading-sub-title">{item.using}</h4>
           <p className="paragraph">{item.description}</p>
           {item.urlGit !== "" ? (
-            <a className="btn" target="_blank" rel="noreferrer" href={item.urlGit}>
+            <a
+              className="btn"
+              target="_blank"
+              rel="noreferrer"
+              href={item.urlGit}
+              aria-label={`View source for ${item.title}`}
+            >
               View source
             </a>
           ) : null}
           {item.url !== "" ? (
-            <a className="btn" target="_blank" rel="noreferrer" href={item.url}>
+            <a
+              className="btn"
+              target="_blank"
+              rel="noreferrer"
+              href={item.url}
+              aria-label={`Try ${item.title} live`}
+            >
               Try it Live
             </a>
           ) : null}
