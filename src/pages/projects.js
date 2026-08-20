@@ -5,12 +5,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projectsPerPage = 2;
+// Matches .project-img's actual rendered width (see _projects.scss): full
+// viewport on phone, ~34% of the container above that.
+const PROJECT_IMAGE_SIZES = "(max-width: 37.5em) 100vw, 34vw";
 
 function Projects({ _data }) {
   const h2 = useRef(null);
   const proj = useRef(null);
   const projectsArr = useRef([]);
-  const imageUrlArr = useRef([]);
+  const projectImagesArr = useRef([]);
   const imageCopyRun = useRef(false);
   const start = useRef(0);
   const finish = useRef(0);
@@ -23,16 +26,19 @@ function Projects({ _data }) {
         start.current = 0;
         finish.current = end *= 2;
         _data.projects.forEach((p) => {
-          imageUrlArr.current.push(p.images.regular.img);
+          projectImagesArr.current.push(p.images);
         });
       }
 
-      for (let i = start.current; i < imageUrlArr.current.length; i++) {
+      for (let i = start.current; i < projectImagesArr.current.length; i++) {
         if (i < finish.current) {
+          const images = projectImagesArr.current[i];
           let link = document.createElement("link");
           link.rel = "preload";
-          link.href = imageUrlArr.current[i];
           link.as = "image";
+          link.href = images.phone.img;
+          link.imageSrcset = `${images.phone.img} 480w, ${images.tablet.img} 800w, ${images.desctop.img} 1200w`;
+          link.imageSizes = PROJECT_IMAGE_SIZES;
 
           document.head.appendChild(link);
         }
@@ -49,30 +55,15 @@ function Projects({ _data }) {
       <div className="projects__main--project  bounceInLeft" key={item.title}>
         <div className="project-img">
           <a className="project-img--link" href={item.url ? item.url : item.urlGit} target="_blank" rel="noreferrer" aria-label={item.description}>
-            <picture>
-              <source 
-                srcSet={item.images.desctop.img} 
-                media="(min-width: 75em)"
-                type="image/webp"
-              />
-              <source 
-                srcSet={item.images.tablet.img}
-                media="(min-width: 56.25em)"
-                type="image/webp"
-              />
-              <source 
-                srcSet={item.images.phone.img} 
-                media="(min-width: 37.5em)"
-                type="image/webp" 
-              />
-              <img
-                width="640"
-                height="360"
-                src={item.images.regular.img}
-                alt={item.description}
-                loading={loading}
-              />
-            </picture>
+            <img
+              width="640"
+              height="360"
+              src={item.images.phone.img}
+              srcSet={`${item.images.phone.img} 480w, ${item.images.tablet.img} 800w, ${item.images.desctop.img} 1200w`}
+              sizes={PROJECT_IMAGE_SIZES}
+              alt={item.description}
+              loading={loading}
+            />
           </a>
         </div>
         <div className="project-desc">
@@ -155,7 +146,7 @@ function Projects({ _data }) {
 
     return () => {
       projectsArr.current = [];
-      imageUrlArr.current = [];
+      projectImagesArr.current = [];
       imageCopyRun.current = false;
       start.current = 0;
       finish.current = 0;
