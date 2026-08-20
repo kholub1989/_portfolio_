@@ -4,7 +4,7 @@ import "../../main.scss";
 import { useTheme } from "../../utils/useTheme";
 
 const ThemeBtn = ({ _data }) => {
-  const darkMode = useDarkMode(true);
+  const darkMode = useDarkMode(false);
   const theme = useTheme();
   let sun = _data.main.toggleIcons[0].icon;
   let moon = _data.main.toggleIcons[1].icon;
