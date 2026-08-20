@@ -8,15 +8,12 @@ import ThemeBtn from "../LightDarkTheme/ThemeBtn";
 
 const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   const [active, setActive] = useState(false);
-  let logoEl = document.querySelector(".header__wrapper--link");
 
-  if (active && isPhone) {
-    logoEl.classList.add("hide-element");
-  } else {
-    if (!!logoEl) {
-      logoEl.classList.remove("hide-element");
-    }
-  }
+  useEffect(() => {
+    const logoEl = document.querySelector(".header__wrapper--link");
+    if (!logoEl) return;
+    logoEl.classList.toggle("hide-element", active && isPhone);
+  }, [active, isPhone]);
 
   return (
     <>
