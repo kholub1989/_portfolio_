@@ -115,46 +115,53 @@ function Projects({ _data }) {
 
   useEffect(() => {
     loopProjects(0, projectsPerPage);
-    gsap.fromTo(
-      h2.current,
-      {
-        opacity: 0,
-        scale: 0.2,
-        y: 200,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          once: true,
-          trigger: ".project-wrapper",
-          start: "top bottom",
-          end: "center bottom",
-          scrub: true,
+
+    // gsap.context + revert on cleanup keeps this StrictMode-safe (see
+    // Navbar.js for why): without it, React's dev-mode double-invoke of
+    // this effect leaves two duplicate ScrollTrigger instances registered
+    // per element with no cleanup on unmount.
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        h2.current,
+        {
+          opacity: 0,
+          scale: 0.2,
+          y: 200,
         },
-      }
-    );
-    gsap.fromTo(
-      proj.current,
-      {
-        opacity: 0,
-        scale: 0,
-        y: 200,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          once: true,
-          trigger: ".project-wrapper",
-          start: "top bottom",
-          end: "center bottom",
-          scrub: true,
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            once: true,
+            trigger: ".project-wrapper",
+            start: "top bottom",
+            end: "center bottom",
+            scrub: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        proj.current,
+        {
+          opacity: 0,
+          scale: 0,
+          y: 200,
         },
-      }
-    );
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            once: true,
+            trigger: ".project-wrapper",
+            start: "top bottom",
+            end: "center bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
 
     return () => {
       projectsArr.current = [];
@@ -162,6 +169,7 @@ function Projects({ _data }) {
       imageCopyRun.current = false;
       start.current = 0;
       finish.current = 0;
+      ctx.revert();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [h2, proj]);

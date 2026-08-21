@@ -19,100 +19,108 @@ function About({ _data }) {
   const image = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      h2.current,
-      {
-        opacity: 0,
-        scale: 0.2,
-        y: 100,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top bottom",
-          end: "center bottom",
-          scrub: true,
-          once: true,
+    // gsap.context + revert on cleanup keeps this StrictMode-safe (see
+    // Navbar.js for why): without it, React's dev-mode double-invoke of
+    // this effect leaves two duplicate ScrollTrigger instances registered
+    // per element with no cleanup on unmount.
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        h2.current,
+        {
+          opacity: 0,
+          scale: 0.2,
+          y: 100,
         },
-      }
-    );
-    gsap.fromTo(
-      p1.current,
-      {
-        opacity: 0,
-        x: -300,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top bottom",
-          end: "center center",
-          scrub: true,
-          once: true,
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top bottom",
+            end: "center bottom",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        p1.current,
+        {
+          opacity: 0,
+          x: -300,
         },
-      }
-    );
-    gsap.fromTo(
-      [p2a.current, p2b.current, p2c.current, p2d.current],
-      {
-        opacity: 0,
-        x: -600,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top bottom +200",
-          end: "center center",
-          scrub: true,
-          once: true,
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top bottom",
+            end: "center center",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        [p2a.current, p2b.current, p2c.current, p2d.current],
+        {
+          opacity: 0,
+          x: -600,
         },
-      }
-    );
-    gsap.fromTo(
-      p3.current,
-      {
-        opacity: 0,
-        x: -1200,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top bottom",
-          end: "center center",
-          scrub: true,
-          once: true,
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top bottom +200",
+            end: "center center",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        p3.current,
+        {
+          opacity: 0,
+          x: -1200,
         },
-      }
-    );
-    gsap.fromTo(
-      image.current,
-      {
-        scale: 0.5,
-        y: 100,
-        opacity: 0.5,
-      },
-      {
-        scale: 1,
-        y: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top center",
-          end: "center center",
-          scrub: true,
-          once: true,
+        {
+          opacity: 1,
+          x: 0,
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top bottom",
+            end: "center center",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        image.current,
+        {
+          scale: 0.5,
+          y: 100,
+          opacity: 0.5,
         },
-      }
-    );
+        {
+          scale: 1,
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top center",
+            end: "center center",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
   }, [h2, p1, p2a, p2b, p2c, p2d, p3, image]);
 
   return (

@@ -8,26 +8,34 @@ function Footer({ _data }) {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap.fromTo(
-      footer.current,
-      {
-        opacity: 0,
-        scale: 0.2,
-        y: 200,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: ".footer",
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: true,
-          once: true,
+    // gsap.context + revert on cleanup keeps this StrictMode-safe (see
+    // Navbar.js for why): without it, React's dev-mode double-invoke of
+    // this effect leaves two duplicate ScrollTrigger instances registered
+    // per element with no cleanup on unmount.
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        footer.current,
+        {
+          opacity: 0,
+          scale: 0.2,
+          y: 200,
         },
-      }
-    );
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: ".footer",
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return (

@@ -10,46 +10,54 @@ function ContactMe() {
   const form = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
-      h2.current,
-      {
-        opacity: 0,
-        scale: 0.2,
-        y: 200,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: ".contact-me-wrapper",
-          start: "top bottom",
-          end: "center bottom",
-          scrub: true,
-          once: true,
+    // gsap.context + revert on cleanup keeps this StrictMode-safe (see
+    // Navbar.js for why): without it, React's dev-mode double-invoke of
+    // this effect leaves two duplicate ScrollTrigger instances registered
+    // per element with no cleanup on unmount.
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        h2.current,
+        {
+          opacity: 0,
+          scale: 0.2,
+          y: 200,
         },
-      }
-    );
-    gsap.fromTo(
-      form.current,
-      {
-        opacity: 0,
-        scale: 0,
-        y: 200,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: ".contact-me__bloc",
-          start: "top bottom",
-          end: "center bottom",
-          scrub: true,
-          once: true,
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: ".contact-me-wrapper",
+            start: "top bottom",
+            end: "center bottom",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+      gsap.fromTo(
+        form.current,
+        {
+          opacity: 0,
+          scale: 0,
+          y: 200,
         },
-      }
-    );
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: ".contact-me__bloc",
+            start: "top bottom",
+            end: "center bottom",
+            scrub: true,
+            once: true,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
   }, [h2, form]);
 
   return (
