@@ -237,7 +237,7 @@
         "description": "A comprehensive dashboard consisting maps, pie chart and bar chart to visualize CO2 emissions across the world.",
         "images": {
           "regular": {
-            "img": "/images/projects/cms.webp"
+            "img": "/images/projects/CO2Dashboard.webp"
           },
           "desctop": {
             "img": "/images/projects/CO2Dashboard-1200w.webp"
