@@ -72,3 +72,10 @@ textarea.error {
   font-size: 1rem;
   margin-top: 0.5rem;
 }
+
+.successMessage {
+  color: var(--themeSimpleTextColor);
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}

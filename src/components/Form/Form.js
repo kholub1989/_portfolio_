@@ -35,6 +35,7 @@ class Form extends Component {
         email: "",
         message: "",
       },
+      submitStatus: null,
     };
   }
 
@@ -63,7 +64,7 @@ class Form extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value });
+    this.setState({ formErrors, [name]: value, submitStatus: null });
   };
 
   // reset the fields
@@ -92,6 +93,8 @@ class Form extends Component {
           message,
         };
 
+        this.setState({ submitStatus: "sending" });
+
         emailjs
           .send(
             "service_nudvj2o",
@@ -102,12 +105,14 @@ class Form extends Component {
           .then(
             (result) => {
               console.log(result.text);
+              this.resetForm();
+              this.setState({ submitStatus: "success" });
             },
             (error) => {
               console.log(error.text);
+              this.setState({ submitStatus: "error" });
             }
           );
-        this.resetForm();
       }
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
@@ -115,7 +120,7 @@ class Form extends Component {
   };
 
   render() {
-    const { name, email, message, formErrors } = this.state;
+    const { name, email, message, formErrors, submitStatus } = this.state;
     return (
       <form className="contact-me__form" onSubmit={this.submitForm} noValidate>
         <div className="contact-me__form-box">
@@ -193,10 +198,24 @@ class Form extends Component {
           <input
             className="btn-form"
             type="submit"
-            value="Send"
-            disabled={!formValid(this.state)}
+            value={submitStatus === "sending" ? "Sending…" : "Send"}
+            disabled={!formValid(this.state) || submitStatus === "sending"}
           />
         </div>
+        {submitStatus === "success" && (
+          <p className="successMessage" role="status">
+            Thanks! I’ll get back to you soon.
+          </p>
+        )}
+        {submitStatus === "error" && (
+          <p className="errorMessage" role="status">
+            Something went wrong sending your message. Please try again or{" "}
+            <a className="btn-link" href="mailto:kholub1989@gmail.com">
+              email me directly
+            </a>
+            .
+          </p>
+        )}
       </form>
     );
   }
