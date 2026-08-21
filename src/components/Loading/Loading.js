@@ -1,7 +1,7 @@
 import React from "react";
 import "../../main.scss";
 
-function Loading(loading) {
+function Loading() {
   return (
     <div className="loading-container">
       <div className="loader-div">
