@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "../../main.scss";
 
 const emailRegex = RegExp(
@@ -22,27 +22,23 @@ const formValid = ({ formErrors, ...rest }) => {
   return valid;
 };
 
-class Form extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+const Form = () => {
+  const [state, setState] = useState({
+    name: "",
+    email: "",
+    message: "",
+    formErrors: {
       name: "",
       email: "",
       message: "",
-      formErrors: {
-        name: "",
-        email: "",
-        message: "",
-      },
-      submitStatus: null,
-    };
-  }
+    },
+    submitStatus: null,
+  });
 
-  handleChange = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    let formErrors = { ...this.state.formErrors };
+    let formErrors = { ...state.formErrors };
 
     switch (name) {
       case "name":
@@ -64,36 +60,38 @@ class Form extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value, submitStatus: null });
+    setState((prev) => ({
+      ...prev,
+      formErrors,
+      [name]: value,
+      submitStatus: null,
+    }));
   };
 
   // reset the fields
-  resetForm = () => {
-    this.setState({
+  const resetForm = () => {
+    setState((prev) => ({
+      ...prev,
       name: "",
       email: "",
       message: "",
-    });
+    }));
   };
 
   // send form
-  submitForm = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
-    const { name, email, message } = this.state;
+    const { name, email, message } = state;
 
-    if (formValid(this.state)) {
-      if (
-        this.state.name !== "" &&
-        this.state.email !== "" &&
-        this.state.message !== ""
-      ) {
+    if (formValid(state)) {
+      if (name !== "" && email !== "" && message !== "") {
         const templateParams = {
           name,
           email,
           message,
         };
 
-        this.setState({ submitStatus: "sending" });
+        setState((prev) => ({ ...prev, submitStatus: "sending" }));
 
         emailjs
           .send(
@@ -105,12 +103,12 @@ class Form extends Component {
           .then(
             (result) => {
               console.log(result.text);
-              this.resetForm();
-              this.setState({ submitStatus: "success" });
+              resetForm();
+              setState((prev) => ({ ...prev, submitStatus: "success" }));
             },
             (error) => {
               console.log(error.text);
-              this.setState({ submitStatus: "error" });
+              setState((prev) => ({ ...prev, submitStatus: "error" }));
             }
           );
       }
@@ -119,106 +117,105 @@ class Form extends Component {
     }
   };
 
-  render() {
-    const { name, email, message, formErrors, submitStatus } = this.state;
-    return (
-      <form className="contact-me__form" onSubmit={this.submitForm} noValidate>
-        <div className="contact-me__form-box">
-          <label className="contact-me__form--label" htmlFor="name">
-            Name
-            <input
-              className={
-                formErrors.name.length > 0
-                  ? " contact-me__form--input error"
-                  : "contact-me__form--input"
-              }
-              name="name"
-              type="text"
-              placeholder="Name"
-              value={name}
-              noValidate
-              onChange={this.handleChange}
-            />
-          </label>
+  const { name, email, message, formErrors, submitStatus } = state;
 
-          {formErrors.name.length > 0 && (
-            <span className="errorMessage">{formErrors.name}</span>
-          )}
-        </div>
-        <div className="contact-me__form-box">
-          <label className="contact-me__form--label" htmlFor="email">
-            Email
-            <input
-              className={
-                formErrors.email.length > 0
-                  ? "contact-me__form--input error"
-                  : "contact-me__form--input"
-              }
-              name="email"
-              type="email"
-              placeholder="Email"
-              value={email}
-              noValidate
-              onChange={this.handleChange}
-            />
-          </label>
-          {formErrors.email.length > 0 && (
-            <span className="errorMessage">{formErrors.email}</span>
-          )}
-        </div>
-        <div className="contact-me__form-box">
-          <label className="contact-me__form--label" htmlFor="text">
-            Type something…
-            <textarea
-              className={
-                formErrors.message.length > 0
-                  ? "contact-me__form--input error"
-                  : "contact-me__form--input"
-              }
-              name="message"
-              type="text"
-              placeholder="Type something…"
-              value={message}
-              noValidate
-              onChange={this.handleChange}
-            />
-          </label>
-
-          {formErrors.message.length > 0 && (
-            <span className="errorMessage">{formErrors.message}</span>
-          )}
-        </div>
-        <div className="contact-me__form--btn">
-          <p className="paragraph">
-            Don’t like forms? That’s ok, just{" "}
-            <a className="btn-link" href="mailto:kholub1989@gmail.com">
-              email me
-            </a>
-          </p>
+  return (
+    <form className="contact-me__form" onSubmit={submitForm} noValidate>
+      <div className="contact-me__form-box">
+        <label className="contact-me__form--label" htmlFor="name">
+          Name
           <input
-            className="btn-form"
-            type="submit"
-            value={submitStatus === "sending" ? "Sending…" : "Send"}
-            disabled={!formValid(this.state) || submitStatus === "sending"}
+            className={
+              formErrors.name.length > 0
+                ? " contact-me__form--input error"
+                : "contact-me__form--input"
+            }
+            name="name"
+            type="text"
+            placeholder="Name"
+            value={name}
+            noValidate
+            onChange={handleChange}
           />
-        </div>
-        {submitStatus === "success" && (
-          <p className="successMessage" role="status">
-            Thanks! I’ll get back to you soon.
-          </p>
+        </label>
+
+        {formErrors.name.length > 0 && (
+          <span className="errorMessage">{formErrors.name}</span>
         )}
-        {submitStatus === "error" && (
-          <p className="errorMessage" role="status">
-            Something went wrong sending your message. Please try again or{" "}
-            <a className="btn-link" href="mailto:kholub1989@gmail.com">
-              email me directly
-            </a>
-            .
-          </p>
+      </div>
+      <div className="contact-me__form-box">
+        <label className="contact-me__form--label" htmlFor="email">
+          Email
+          <input
+            className={
+              formErrors.email.length > 0
+                ? "contact-me__form--input error"
+                : "contact-me__form--input"
+            }
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={email}
+            noValidate
+            onChange={handleChange}
+          />
+        </label>
+        {formErrors.email.length > 0 && (
+          <span className="errorMessage">{formErrors.email}</span>
         )}
-      </form>
-    );
-  }
-}
+      </div>
+      <div className="contact-me__form-box">
+        <label className="contact-me__form--label" htmlFor="text">
+          Type something…
+          <textarea
+            className={
+              formErrors.message.length > 0
+                ? "contact-me__form--input error"
+                : "contact-me__form--input"
+            }
+            name="message"
+            type="text"
+            placeholder="Type something…"
+            value={message}
+            noValidate
+            onChange={handleChange}
+          />
+        </label>
+
+        {formErrors.message.length > 0 && (
+          <span className="errorMessage">{formErrors.message}</span>
+        )}
+      </div>
+      <div className="contact-me__form--btn">
+        <p className="paragraph">
+          Don’t like forms? That’s ok, just{" "}
+          <a className="btn-link" href="mailto:kholub1989@gmail.com">
+            email me
+          </a>
+        </p>
+        <input
+          className="btn-form"
+          type="submit"
+          value={submitStatus === "sending" ? "Sending…" : "Send"}
+          disabled={!formValid(state) || submitStatus === "sending"}
+        />
+      </div>
+      {submitStatus === "success" && (
+        <p className="successMessage" role="status">
+          Thanks! I’ll get back to you soon.
+        </p>
+      )}
+      {submitStatus === "error" && (
+        <p className="errorMessage" role="status">
+          Something went wrong sending your message. Please try again or{" "}
+          <a className="btn-link" href="mailto:kholub1989@gmail.com">
+            email me directly
+          </a>
+          .
+        </p>
+      )}
+    </form>
+  );
+};
 
 export default Form;
