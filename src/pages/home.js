@@ -57,7 +57,7 @@ function Home({ _data }) {
           <div className="home__text">
             <h1 className="heading-primary" ref={h1}>
               <span className="heading-primary--white">Hi, </span> <br />
-              I'm <span className="heading-primary--blue">{_data.name} </span>
+              I’m <span className="heading-primary--blue">{_data.name} </span>
               <br />I <span className="heading-primary--blue">design </span>and
               <span className="heading-primary--blue"> build </span>
               <span className="heading-primary--white">beautiful </span>
