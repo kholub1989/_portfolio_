@@ -13,11 +13,18 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
     const logoEl = document.querySelector(".header__wrapper--link");
     if (!logoEl) return;
     logoEl.classList.toggle("hide-element", active && isPhone);
+    return () => logoEl.classList.remove("hide-element");
   }, [active, isPhone]);
 
   return (
     <>
-      {active && <List _data={_data} isViewportMobile={isViewportMobile} />}
+      {active && (
+        <List
+          _data={_data}
+          isViewportMobile={isViewportMobile}
+          onNavigate={() => setActive(false)}
+        />
+      )}
       <nav className="nav">
         <ul className="nav__list">
           <li className="nav__item nav__item--theme">
@@ -25,14 +32,18 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
           </li>
           <li className="nav__item nav__item--theme">
             <div className="burger-menu-wrapper">
-              <div
+              <button
+                type="button"
                 className={!active ? "burger-menu" : "burger-menu menu-on"}
                 onClick={() => {
                   setActive(!active);
                 }}
+                aria-expanded={active}
+                aria-controls="mobile-nav-menu"
+                aria-label={active ? "Close menu" : "Open menu"}
               >
                 <div className="burger"></div>
-              </div>
+              </button>
             </div>
           </li>
         </ul>
@@ -41,9 +52,9 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   );
 };
 
-const List = ({ _data, isViewportMobile }) => {
+const List = ({ _data, isViewportMobile, onNavigate }) => {
   return (
-    <nav className="nav nav__main">
+    <nav className="nav nav__main" id={onNavigate ? "mobile-nav-menu" : undefined}>
       <ul className="nav__list">
         <li className="nav__item">
           <Link
@@ -55,6 +66,7 @@ const List = ({ _data, isViewportMobile }) => {
             // offset={-50}
             duration={600}
             href="home-wrapper"
+            onClick={onNavigate}
           >
             Home
           </Link>
@@ -69,6 +81,7 @@ const List = ({ _data, isViewportMobile }) => {
             // offset={-80}
             duration={600}
             href="about-wrapper"
+            onClick={onNavigate}
           >
             About
           </Link>
@@ -84,6 +97,7 @@ const List = ({ _data, isViewportMobile }) => {
             // offset={-80}
             duration={600}
             href="project-wrapper"
+            onClick={onNavigate}
           >
             Projects
           </Link>
@@ -98,11 +112,12 @@ const List = ({ _data, isViewportMobile }) => {
             // offset={-50}
             duration={600}
             href="contact-me-wrapper"
+            onClick={onNavigate}
           >
             Contact me
           </Link>
         </li>
-        {!isViewportMobile && 
+        {!isViewportMobile &&
         <li className="nav__item nav__item--theme">
           <ThemeBtn _data={_data} />
         </li>

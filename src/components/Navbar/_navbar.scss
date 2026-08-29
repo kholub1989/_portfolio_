@@ -81,6 +81,12 @@
   position: relative;
   width: 2.5rem;
   height: 2.5rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  @include focusVisible;
 }
 
 .burger {
