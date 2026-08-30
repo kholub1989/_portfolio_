@@ -50,7 +50,10 @@ function Projects({ _data }) {
   };
 
   const projects = _data.projects.map((item, index) => {
-    let loading = (index === 1) ? "lazy" : "";
+    // Only the first page (visible on mount) should be eager; every
+    // project after that — including everything pulled in later via
+    // "Load more" — is off-screen when it renders, so it should be lazy.
+    const loading = index < projectsPerPage ? "eager" : "lazy";
     return (
       <div className="projects__main--project  bounceInLeft" key={item.title}>
         <div className="project-img">
