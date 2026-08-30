@@ -101,19 +101,15 @@ const Form = () => {
             "Hvv7sWcNVzrp-olXj"
           )
           .then(
-            (result) => {
-              console.log(result.text);
+            () => {
               resetForm();
               setState((prev) => ({ ...prev, submitStatus: "success" }));
             },
-            (error) => {
-              console.log(error.text);
+            () => {
               setState((prev) => ({ ...prev, submitStatus: "error" }));
             }
           );
       }
-    } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
   };
 
@@ -125,6 +121,7 @@ const Form = () => {
         <label className="contact-me__form--label" htmlFor="name">
           Name
           <input
+            id="name"
             className={
               formErrors.name.length > 0
                 ? " contact-me__form--input error"
@@ -134,19 +131,21 @@ const Form = () => {
             type="text"
             placeholder="Name"
             value={name}
-            noValidate
+            aria-invalid={formErrors.name.length > 0}
+            aria-describedby={formErrors.name.length > 0 ? "name-error" : undefined}
             onChange={handleChange}
           />
         </label>
 
         {formErrors.name.length > 0 && (
-          <span className="errorMessage">{formErrors.name}</span>
+          <span className="errorMessage" id="name-error">{formErrors.name}</span>
         )}
       </div>
       <div className="contact-me__form-box">
         <label className="contact-me__form--label" htmlFor="email">
           Email
           <input
+            id="email"
             className={
               formErrors.email.length > 0
                 ? "contact-me__form--input error"
@@ -156,34 +155,36 @@ const Form = () => {
             type="email"
             placeholder="Email"
             value={email}
-            noValidate
+            aria-invalid={formErrors.email.length > 0}
+            aria-describedby={formErrors.email.length > 0 ? "email-error" : undefined}
             onChange={handleChange}
           />
         </label>
         {formErrors.email.length > 0 && (
-          <span className="errorMessage">{formErrors.email}</span>
+          <span className="errorMessage" id="email-error">{formErrors.email}</span>
         )}
       </div>
       <div className="contact-me__form-box">
-        <label className="contact-me__form--label" htmlFor="text">
+        <label className="contact-me__form--label" htmlFor="message">
           Type something…
           <textarea
+            id="message"
             className={
               formErrors.message.length > 0
                 ? "contact-me__form--input error"
                 : "contact-me__form--input"
             }
             name="message"
-            type="text"
             placeholder="Type something…"
             value={message}
-            noValidate
+            aria-invalid={formErrors.message.length > 0}
+            aria-describedby={formErrors.message.length > 0 ? "message-error" : undefined}
             onChange={handleChange}
           />
         </label>
 
         {formErrors.message.length > 0 && (
-          <span className="errorMessage">{formErrors.message}</span>
+          <span className="errorMessage" id="message-error">{formErrors.message}</span>
         )}
       </div>
       <div className="contact-me__form--btn">
