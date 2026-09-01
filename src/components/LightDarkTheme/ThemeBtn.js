@@ -1,10 +1,10 @@
 import React from "react";
-import useDarkMode from "use-dark-mode";
+import { useDarkMode } from "../../utils/useDarkMode";
 import "../../main.scss";
 import { useTheme } from "../../utils/useTheme";
 
 const ThemeBtn = ({ _data }) => {
-  const darkMode = useDarkMode(false);
+  const darkMode = useDarkMode();
   const theme = useTheme();
   let sun = _data.main.toggleIcons[0].icon;
   let moon = _data.main.toggleIcons[1].icon;
