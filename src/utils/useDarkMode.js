@@ -21,10 +21,16 @@ function getInitialValue() {
   return persisted === null ? getSystemPreference() : persisted;
 }
 
+function applyBodyClass(next) {
+  document.body.classList.toggle("dark-mode", next);
+}
+
 let currentValue = getInitialValue();
+applyBodyClass(currentValue);
 
 function notify(next) {
   currentValue = next;
+  applyBodyClass(next);
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
   } catch {
@@ -42,6 +48,10 @@ function notify(next) {
  * the native `storage` event, and follows the OS `prefers-color-scheme`
  * live - matching the original library's behavior exactly, including
  * that an OS-level change always wins over a previous manual toggle.
+ * Also toggles a "dark-mode" class on `document.body`, same as the
+ * original library did - `body`'s own background relies on this since
+ * CSS custom properties set on a descendant (the app root div) can't
+ * cascade back up to an ancestor like `body`.
  */
 export function useDarkMode() {
   const [value, setValue] = useState(currentValue);
