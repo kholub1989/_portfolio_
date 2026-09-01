@@ -14,9 +14,6 @@
     "website": "https://www.krisztianholub.com/",
     "resume-google-drive": "https://drive.google.com/drive/u/0/folders/1Wsp3MLh_Oeshm-5_k3OT1WMcHqFn3G-M",
     "avatar": {
-      "regular": {
-        "img": "/images/profile/krisztian-holub.webp"
-      },
       "desctop": {
         "img": "/images/profile/krisztian-holub-1200w.webp"
       },
@@ -43,12 +40,12 @@
       {
         "name": "Sun",
         "icon": "/images/icons/sprite.svg#sun",
-        "ariaLabel" : "Use Dark Mode"
+        "ariaLabel": "Use Dark Mode"
       },
       {
         "name": "Moon",
         "icon": "/images/icons/sprite.svg#moon",
-        "ariaLabel" : "Use Light Mode"
+        "ariaLabel": "Use Light Mode"
       }
     ]
   },
@@ -60,9 +57,6 @@
         "using": "React, Redux, Node.js, Firebase, Stripe, SCSS,",
         "description": "E-commerce application for a fictional fashion company.",
         "images": {
-          "regular": {
-            "img": "/images/projects/crow-clothing.webp"
-          },
           "desctop": {
             "img": "/images/projects/crow-clothing-1200w.webp"
           },
@@ -82,9 +76,6 @@
         "using": "MERN stack (MongoDB, ExpressJS, React and Node.JS)",
         "description": "React and Node project, building a fully-functional e-commerce website exactly like amazon.",
         "images": {
-          "regular": {
-            "img": "/images/projects/amazon-clone-full-ecomm.webp"
-          },
           "desctop": {
             "img": "/images/projects/amazon-clone-full-ecomm-1200w.webp"
           },
@@ -104,9 +95,6 @@
         "using": "React Hooks, Material UI, Charts.js",
         "description": "Tracker application with charts and visualizations.",
         "images": {
-          "regular": {
-            "img": "/images/projects/COVID-19.webp"
-          },
           "desctop": {
             "img": "/images/projects/COVID-19-1200w.webp"
           },
@@ -126,9 +114,6 @@
         "using": "javaScript, React, Styled Components",
         "description": "This web application is a store that can sell mobile devices.",
         "images": {
-          "regular": {
-            "img": "/images/projects/eCommercePhoneStore.webp"
-          },
           "desctop": {
             "img": "/images/projects/eCommercePhoneStore-1200w.webp"
           },
@@ -148,9 +133,6 @@
         "using": "JavaScript, MongoDB, Express, Node, React, GraphQL",
         "description": "Full-stack app with implementing a GraphQL server that uses Node and Express to communicate to a MongoDB Database and fetch and persist data to the back-end.",
         "images": {
-          "regular": {
-            "img": "/images/projects/social-media-app.webp"
-          },
           "desctop": {
             "img": "/images/projects/social-media-app-1200w.webp"
           },
@@ -170,9 +152,6 @@
         "using": "JavaScript, React, Hooks, Context, NextJS, Router",
         "description": "Clone of websites like Flat UI Colors and Material UI Colors.",
         "images": {
-          "regular": {
-            "img": "/images/projects/reactcolors.webp"
-          },
           "desctop": {
             "img": "/images/projects/reactcolors-1200w.webp"
           },
@@ -192,9 +171,6 @@
         "using": "Java Script, React, Axios, uuid, RESTful routing",
         "description": "This web application displays a random Dad Joke which you can rate.",
         "images": {
-          "regular": {
-            "img": "/images/projects/dadjokes.webp"
-          },
           "desctop": {
             "img": "/images/projects/dadjokes-1200w.webp"
           },
@@ -214,9 +190,6 @@
         "using": "VANILLA JS, Node.js, Express, MongoDB, RESTful routing, Bootstrap 4",
         "description": "Is a full-stack web dev project for searching campgrounds. The app has user authentication and authorization features, functionality is adding campground posts, comments, and likes.",
         "images": {
-          "regular": {
-            "img": "/images/projects/yelpCamp.webp"
-          },
           "desctop": {
             "img": "/images/projects/yelpCamp-1200w.webp"
           },
@@ -236,9 +209,6 @@
         "using": "JavaScript, D3.js",
         "description": "A comprehensive dashboard consisting maps, pie chart and bar chart to visualize CO2 emissions across the world.",
         "images": {
-          "regular": {
-            "img": "/images/projects/CO2Dashboard.webp"
-          },
           "desctop": {
             "img": "/images/projects/CO2Dashboard-1200w.webp"
           },
@@ -258,9 +228,6 @@
         "using": "PHP, CRUD, CSS 3, HTML 5",
         "description": "This project contains the most essential functionalities of an ordinary blogging system should have. Home Page, Control Panel.",
         "images": {
-          "regular": {
-            "img": "/images/projects/cms.webp"
-          },
           "desctop": {
             "img": "/images/projects/cms-1200w.webp"
           },
@@ -280,9 +247,6 @@
         "using": "JavaScript, React, Hooks, Styled Components.",
         "description": "Classic tetris game built with React.",
         "images": {
-          "regular": {
-            "img": "/images/projects/tetrisgame.webp"
-          },
           "desctop": {
             "img": "/images/projects/tetrisgame-1200w.webp"
           },
@@ -302,9 +266,6 @@
         "using": "JavaScript, React, Node.js, Bootstrap 4",
         "description": "Twitter clone application and API",
         "images": {
-          "regular": {
-            "img": "/images/projects/warbler.webp"
-          },
           "desctop": {
             "img": "/images/projects/warbler-1200w.webp"
           },
@@ -324,9 +285,6 @@
         "using": "JavaScript, Html, Css",
         "description": "Pacman game made with JS",
         "images": {
-          "regular": {
-            "img": "/images/projects/pacman.webp"
-          },
           "desctop": {
             "img": "/images/projects/pacman-1200w.webp"
           },
