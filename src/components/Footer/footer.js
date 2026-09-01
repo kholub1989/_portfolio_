@@ -3,9 +3,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../../main.scss";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Footer({ _data }) {
   const footer = useRef(null);
-  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     // gsap.context + revert on cleanup keeps this StrictMode-safe (see

@@ -162,7 +162,7 @@ progress::-webkit-progress-value {
   background: linear-gradient(
     to left,
     rgb(3, 119, 190),
-    rgb(3, 154, 229),
+    $color-primary,
     rgb(42, 182, 246),
     rgb(129, 212, 250),
     rgb(179, 229, 252),
@@ -174,7 +174,7 @@ progress::-moz-progress-bar {
   background: linear-gradient(
     to left,
     rgb(3, 119, 190),
-    rgb(3, 154, 229),
+    $color-primary,
     rgb(42, 182, 246),
     rgb(129, 212, 250),
     rgb(179, 229, 252),

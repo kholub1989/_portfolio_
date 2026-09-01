@@ -4,6 +4,8 @@ import { animateScroll as scroll } from "react-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const projectsPerPage = 2;
 // Matches .project-img's actual rendered width (see _projects.scss): full
 // viewport on phone, ~34% of the container above that.
@@ -17,7 +19,7 @@ function Projects({ _data }) {
   const imageCopyRun = useRef(false);
   const start = useRef(0);
   const finish = useRef(0);
-  gsap.registerPlugin(ScrollTrigger);
+  const preloadLinks = useRef([]);
 
   const preloadImage = (end) => {
     return (() => {
@@ -41,6 +43,7 @@ function Projects({ _data }) {
           link.imageSizes = PROJECT_IMAGE_SIZES;
 
           document.head.appendChild(link);
+          preloadLinks.current.push(link);
         }
       }
 
@@ -172,6 +175,8 @@ function Projects({ _data }) {
       imageCopyRun.current = false;
       start.current = 0;
       finish.current = 0;
+      preloadLinks.current.forEach((link) => link.remove());
+      preloadLinks.current = [];
       ctx.revert();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -41,10 +41,10 @@ function App() {
         {loading ? (
           <>
             <Navbar _data={data} />
-            <Home _data={data.main} id="home" />
-            <About _data={data.main} id="about" />
-            <Projects _data={data.portfolio} to="projects" />
-            <ContactMe to="contact-me" />
+            <Home _data={data.main} />
+            <About _data={data.main} />
+            <Projects _data={data.portfolio} />
+            <ContactMe />
             <Footer _data={data} />
           </>
         ) : (

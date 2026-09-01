@@ -6,6 +6,8 @@ import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ThemeBtn from "../LightDarkTheme/ThemeBtn";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   const [active, setActive] = useState(false);
 
@@ -148,7 +150,6 @@ const List = ({ _data, isViewportMobile, onNavigate }) => {
 };
 
 const Navbar = ({ _data }) => {
-  gsap.registerPlugin(ScrollTrigger);
   const header = useRef(null);
   const customScroll = useRef(null);
 

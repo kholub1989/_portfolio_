@@ -4,8 +4,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../main.scss";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function ContactMe() {
-  gsap.registerPlugin(ScrollTrigger);
   const h2 = useRef(null);
   const form = useRef(null);
 

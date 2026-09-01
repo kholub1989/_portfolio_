@@ -3,12 +3,13 @@ import "../main.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 // Matches .about__img's max-width (see _about.scss): full viewport on
 // phone, capped at 35rem (up to 420px at the widest root font-size) above.
 const AVATAR_IMAGE_SIZES = "(max-width: 37.5em) 100vw, 420px";
 
 function About({ _data }) {
-  gsap.registerPlugin(ScrollTrigger);
   const h2 = useRef(null);
   const p1 = useRef(null);
   const p2a = useRef(null);
