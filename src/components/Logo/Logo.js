@@ -1,9 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "../../main.scss";
 
-function Logo() {
+const Logo = forwardRef(function Logo(_props, ref) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 591">
+    <svg ref={ref} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 591">
       <title>Krisztian Holub - pigeon logo</title>
       <defs>
         <linearGradient id="a" x1="0%" x2="98.481%" y1="17.365%" y2="0%">
@@ -108,6 +108,6 @@ function Logo() {
       />
     </svg>
   );
-}
+});
 
 export default Logo;

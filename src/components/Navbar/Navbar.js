@@ -5,6 +5,7 @@ import "../../main.scss";
 import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ThemeBtn from "../LightDarkTheme/ThemeBtn";
+import { prefersReducedMotion } from "../../utils/scrollReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,6 +153,23 @@ const List = ({ _data, isViewportMobile, onNavigate }) => {
 const Navbar = ({ _data }) => {
   const header = useRef(null);
   const customScroll = useRef(null);
+  const logo = useRef(null);
+
+  // Small pop on hover/focus - a single smooth scale up and back down,
+  // no wiggle/oscillation. One-shot: it settles back to rest on its own,
+  // so there's no separate mouseleave/blur handler to reset it.
+  const handleLogoFlutter = () => {
+    if (prefersReducedMotion() || !logo.current) return;
+    gsap.killTweensOf(logo.current);
+    gsap.to(logo.current, {
+      scale: 1.12,
+      duration: 0.25,
+      ease: "power2.out",
+      transformOrigin: "50% 50%",
+      yoyo: true,
+      repeat: 1,
+    });
+  };
 
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width:900px)").matches
@@ -203,8 +221,10 @@ const Navbar = ({ _data }) => {
           className="header__wrapper--link"
           href="/"
           aria-label="logo"
+          onMouseEnter={handleLogoFlutter}
+          onFocus={handleLogoFlutter}
         >
-          <Logo />
+          <Logo ref={logo} />
         </Link>
         {isMobile ? (
           <MobileList

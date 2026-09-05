@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { revealOnScroll } from "../../utils/scrollReveal";
 import "../../main.scss";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Footer({ _data }) {
   const footer = useRef(null);
@@ -14,26 +12,18 @@ function Footer({ _data }) {
     // this effect leaves two duplicate ScrollTrigger instances registered
     // per element with no cleanup on unmount.
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        footer.current,
-        {
-          opacity: 0,
-          scale: 0.2,
-          y: 200,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: ".footer",
-            start: "top bottom",
-            end: "bottom bottom",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
+      // "top bottom" (not the default "top 85%"): the footer is the last
+      // element on the page, so there's no content below it to scroll
+      // through. On a tall/short-page viewport, "85%" can demand more
+      // scroll distance than the page physically has - the browser hits
+      // max scroll just short of the trigger point, and it never fires.
+      // "top bottom" fires as soon as the footer starts entering view,
+      // which is always reachable no matter the viewport-to-page ratio.
+      revealOnScroll(footer.current, {
+        from: { y: 60, scale: 0.92 },
+        trigger: ".footer",
+        start: "top bottom",
+      });
     });
 
     return () => ctx.revert();

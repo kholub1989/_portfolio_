@@ -132,25 +132,3 @@ $breakpoint:
     margin-bottom: 4rem !important;
   }
 }
-
-// Animation for projects
-.bounceInLeft {
-  animation: bounceInLeft ease 1s;
-}
-
-@keyframes bounceInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-30rem);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(2.5rem);
-  }
-  80% {
-    transform: translateX(-1rem);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}

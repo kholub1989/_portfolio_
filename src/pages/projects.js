@@ -2,9 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "../main.scss";
 import { animateScroll as scroll } from "react-scroll";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { revealOnScroll } from "../utils/scrollReveal";
 
 const projectsPerPage = 2;
 // Matches .project-img's actual rendered width (see _projects.scss): full
@@ -20,6 +18,7 @@ function Projects({ _data }) {
   const start = useRef(0);
   const finish = useRef(0);
   const preloadLinks = useRef([]);
+  const revealedCount = useRef(0);
 
   const preloadImage = (end) => {
     return (() => {
@@ -58,7 +57,7 @@ function Projects({ _data }) {
     // "Load more" — is off-screen when it renders, so it should be lazy.
     const loading = index < projectsPerPage ? "eager" : "lazy";
     return (
-      <div className="projects__main--project  bounceInLeft" key={item.title}>
+      <div className="projects__main--project" key={item.title}>
         <div className="project-img">
           <a className="project-img--link" href={item.url ? item.url : item.urlGit} target="_blank" rel="noreferrer" aria-label={item.description}>
             <img
@@ -127,46 +126,11 @@ function Projects({ _data }) {
     // this effect leaves two duplicate ScrollTrigger instances registered
     // per element with no cleanup on unmount.
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        h2.current,
-        {
-          opacity: 0,
-          scale: 0.2,
-          y: 200,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            once: true,
-            trigger: ".project-wrapper",
-            start: "top bottom",
-            end: "center bottom",
-            scrub: true,
-          },
-        }
-      );
-      gsap.fromTo(
-        proj.current,
-        {
-          opacity: 0,
-          scale: 0,
-          y: 200,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            once: true,
-            trigger: ".project-wrapper",
-            start: "top bottom",
-            end: "center bottom",
-            scrub: true,
-          },
-        }
-      );
+      revealOnScroll(h2.current, {
+        from: { y: 50, scale: 0.85 },
+        trigger: ".project-wrapper",
+        ease: "back.out(1.6)",
+      });
     });
 
     return () => {
@@ -175,12 +139,41 @@ function Projects({ _data }) {
       imageCopyRun.current = false;
       start.current = 0;
       finish.current = 0;
+      revealedCount.current = 0;
       preloadLinks.current.forEach((link) => link.remove());
       preloadLinks.current = [];
       ctx.revert();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [h2, proj]);
+  }, [h2]);
+
+  // Pops each project card in as it appears - scroll-triggered for the
+  // first page (still off-screen when it mounts), played immediately for
+  // every later "Load more" batch (already in view when the click adds
+  // them, so there's nothing to scroll-trigger).
+  useEffect(() => {
+    if (!proj.current) return;
+    const cards = Array.from(
+      proj.current.querySelectorAll(".projects__main--project")
+    );
+    const newCards = cards.slice(revealedCount.current);
+    if (newCards.length === 0) return;
+
+    const isFirstBatch = revealedCount.current === 0;
+    revealedCount.current = cards.length;
+
+    const ctx = gsap.context(() => {
+      revealOnScroll(newCards, {
+        from: { y: 60, scale: 0.92 },
+        trigger: isFirstBatch ? ".project-wrapper" : false,
+        start: "top 80%",
+        stagger: 0.12,
+        ease: "back.out(1.5)",
+      });
+    });
+
+    return () => ctx.revert();
+  }, [projectsToShow]);
 
   const handelClickShowMore = () => {
     loopProjects(ref.current, ref.current + projectsPerPage);

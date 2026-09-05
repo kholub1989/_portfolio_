@@ -1,10 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import Form from "../components/Form/Form";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { revealOnScroll } from "../utils/scrollReveal";
 import "../main.scss";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function ContactMe() {
   const h2 = useRef(null);
@@ -16,46 +14,15 @@ function ContactMe() {
     // this effect leaves two duplicate ScrollTrigger instances registered
     // per element with no cleanup on unmount.
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        h2.current,
-        {
-          opacity: 0,
-          scale: 0.2,
-          y: 200,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: ".contact-me-wrapper",
-            start: "top bottom",
-            end: "center bottom",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
-      gsap.fromTo(
-        form.current,
-        {
-          opacity: 0,
-          scale: 0,
-          y: 200,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: ".contact-me__bloc",
-            start: "top bottom",
-            end: "center bottom",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
+      revealOnScroll(h2.current, {
+        from: { y: 50, scale: 0.85 },
+        trigger: ".contact-me-wrapper",
+        ease: "back.out(1.6)",
+      });
+      revealOnScroll(form.current, {
+        from: { y: 60, scale: 0.92 },
+        trigger: ".contact-me__bloc",
+      });
     });
 
     return () => ctx.revert();

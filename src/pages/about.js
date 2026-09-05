@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../main.scss";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { revealOnScroll } from "../utils/scrollReveal";
 
 // Matches .about__img's max-width (see _about.scss): full viewport on
 // phone, capped at 35rem (up to 420px at the widest root font-size) above.
@@ -25,100 +23,31 @@ function About({ _data }) {
     // this effect leaves two duplicate ScrollTrigger instances registered
     // per element with no cleanup on unmount.
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        h2.current,
-        {
-          opacity: 0,
-          scale: 0.2,
-          y: 100,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: ".about-wrapper",
-            start: "top bottom",
-            end: "center bottom",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
-      gsap.fromTo(
-        p1.current,
-        {
-          opacity: 0,
-          x: -300,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scrollTrigger: {
-            trigger: ".about-wrapper",
-            start: "top bottom",
-            end: "center center",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
-      gsap.fromTo(
-        [p2a.current, p2b.current, p2c.current, p2d.current],
-        {
-          opacity: 0,
-          x: -600,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scrollTrigger: {
-            trigger: ".about-wrapper",
-            start: "top bottom +200",
-            end: "center center",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
-      gsap.fromTo(
-        p3.current,
-        {
-          opacity: 0,
-          x: -1200,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          scrollTrigger: {
-            trigger: ".about-wrapper",
-            start: "top bottom",
-            end: "center center",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
-      gsap.fromTo(
-        image.current,
-        {
-          scale: 0.5,
-          y: 100,
-          opacity: 0.5,
-        },
-        {
-          scale: 1,
-          y: 0,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: ".about-wrapper",
-            start: "top center",
-            end: "center center",
-            scrub: true,
-            once: true,
-          },
-        }
-      );
+      revealOnScroll(h2.current, {
+        from: { y: 50, scale: 0.85 },
+        trigger: ".about-wrapper",
+        ease: "back.out(1.6)",
+      });
+      revealOnScroll(p1.current, {
+        from: { y: 40 },
+        trigger: ".about-wrapper",
+      });
+      revealOnScroll([p2a.current, p2b.current, p2c.current, p2d.current], {
+        from: { y: 40 },
+        trigger: ".about-wrapper",
+        start: "top 65%",
+        stagger: 0.15,
+      });
+      revealOnScroll(p3.current, {
+        from: { y: 40 },
+        trigger: ".about-wrapper",
+        start: "top 55%",
+      });
+      revealOnScroll(image.current, {
+        from: { y: 60, scale: 0.9 },
+        trigger: ".about-wrapper",
+        start: "top 55%",
+      });
     });
 
     return () => ctx.revert();
