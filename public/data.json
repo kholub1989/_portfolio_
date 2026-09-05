@@ -22,6 +22,9 @@
       },
       "phone": {
         "img": "/images/profile/krisztian-holub-480w.webp"
+      },
+      "phoneLarge": {
+        "img": "/images/profile/krisztian-holub-640w.webp"
       }
     },
     "socialLinks": [
@@ -65,6 +68,9 @@
           },
           "phone": {
             "img": "/images/projects/crow-clothing-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/crow-clothing-640w.webp"
           }
         },
         "url": "https://crowclothing.herokuapp.com/",
@@ -84,6 +90,9 @@
           },
           "phone": {
             "img": "/images/projects/amazon-clone-full-ecomm-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/amazon-clone-full-ecomm-640w.webp"
           }
         },
         "url": "",
@@ -103,6 +112,9 @@
           },
           "phone": {
             "img": "/images/projects/COVID-19-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/COVID-19-640w.webp"
           }
         },
         "url": "https://inspiring-dubinsky-f594fc.netlify.app/",
@@ -122,6 +134,9 @@
           },
           "phone": {
             "img": "/images/projects/eCommercePhoneStore-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/eCommercePhoneStore-640w.webp"
           }
         },
         "url": "https://kholub1989ecommercephonestore.netlify.app/",
@@ -141,6 +156,9 @@
           },
           "phone": {
             "img": "/images/projects/social-media-app-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/social-media-app-640w.webp"
           }
         },
         "url": "https://lucid-cray-0e02b8.netlify.app/",
@@ -160,6 +178,9 @@
           },
           "phone": {
             "img": "/images/projects/reactcolors-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/reactcolors-640w.webp"
           }
         },
         "url": "https://zen-almeida-c5214c.netlify.app/",
@@ -179,6 +200,9 @@
           },
           "phone": {
             "img": "/images/projects/dadjokes-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/dadjokes-640w.webp"
           }
         },
         "url": "https://laughing-hugle-1020a6.netlify.app/",
@@ -198,6 +222,9 @@
           },
           "phone": {
             "img": "/images/projects/yelpCamp-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/yelpCamp-640w.webp"
           }
         },
         "url": "https://young-taiga-22812.herokuapp.com/",
@@ -217,6 +244,9 @@
           },
           "phone": {
             "img": "/images/projects/CO2Dashboard-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/CO2Dashboard-640w.webp"
           }
         },
         "url": "https://laughing-torvalds-3751ea.netlify.app/",
@@ -236,6 +266,9 @@
           },
           "phone": {
             "img": "/images/projects/cms-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/cms-640w.webp"
           }
         },
         "url": "",
@@ -255,6 +288,9 @@
           },
           "phone": {
             "img": "/images/projects/tetrisgame-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/tetrisgame-640w.webp"
           }
         },
         "url": "https://wonderful-pike-11d450.netlify.app/",
@@ -274,6 +310,9 @@
           },
           "phone": {
             "img": "/images/projects/warbler-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/warbler-640w.webp"
           }
         },
         "url": "",
@@ -293,6 +332,9 @@
           },
           "phone": {
             "img": "/images/projects/pacman-480w.webp"
+          },
+          "phoneLarge": {
+            "img": "/images/projects/pacman-640w.webp"
           }
         },
         "url": "",

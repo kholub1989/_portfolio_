@@ -3,9 +3,13 @@ import "../main.scss";
 import { gsap } from "gsap";
 import { revealOnScroll } from "../utils/scrollReveal";
 
-// Matches .about__img's max-width (see _about.scss): full viewport on
-// phone, capped at 35rem (up to 420px at the widest root font-size) above.
-const AVATAR_IMAGE_SIZES = "(max-width: 37.5em) 100vw, 420px";
+// Matches .about__img's actual rendered width (see _about.scss): 100% of
+// its container, but the container has padding at phone widths, so it
+// never actually reaches 100vw - measured 79-82vw across real phone
+// widths. 85vw stays safely on the generous side of that (never picks a
+// source too small to look sharp). Capped at 35rem (up to 420px at the
+// widest root font-size) above the phone breakpoint.
+const AVATAR_IMAGE_SIZES = "(max-width: 37.5em) 85vw, 420px";
 
 function About({ _data }) {
   const h2 = useRef(null);
@@ -102,7 +106,7 @@ function About({ _data }) {
           </div>
           <img
             src={_data.avatar.phone.img}
-            srcSet={`${_data.avatar.phone.img} 480w, ${_data.avatar.tablet.img} 800w, ${_data.avatar.desctop.img} 1200w`}
+            srcSet={`${_data.avatar.phone.img} 480w, ${_data.avatar.phoneLarge.img} 640w, ${_data.avatar.tablet.img} 800w, ${_data.avatar.desctop.img} 1200w`}
             sizes={AVATAR_IMAGE_SIZES}
             alt="avatar"
             width="420"

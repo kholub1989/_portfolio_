@@ -5,9 +5,15 @@ import { gsap } from "gsap";
 import { revealOnScroll } from "../utils/scrollReveal";
 
 const projectsPerPage = 2;
-// Matches .project-img's actual rendered width (see _projects.scss): full
-// viewport on phone, ~34% of the container above that.
-const PROJECT_IMAGE_SIZES = "(max-width: 37.5em) 100vw, 34vw";
+// Matches .project-img's actual rendered width (see _projects.scss): the
+// image is 100% of its container, but the container itself has padding at
+// phone widths, so it never actually reaches 100vw - measured 80-86vw
+// across real phone widths (320-600px). 85vw stays safely on the generous
+// side of that range (never picks a source too small to look sharp) while
+// still telling the browser the truth instead of the old "100vw", which
+// was causing it to fetch a needlessly large srcset candidate. ~34% of
+// the container above the phone breakpoint.
+const PROJECT_IMAGE_SIZES = "(max-width: 37.5em) 85vw, 34vw";
 
 function Projects({ _data }) {
   const h2 = useRef(null);
@@ -38,7 +44,7 @@ function Projects({ _data }) {
           link.rel = "preload";
           link.as = "image";
           link.href = images.phone.img;
-          link.imageSrcset = `${images.phone.img} 480w, ${images.tablet.img} 800w, ${images.desctop.img} 1200w`;
+          link.imageSrcset = `${images.phone.img} 480w, ${images.phoneLarge.img} 640w, ${images.tablet.img} 800w, ${images.desctop.img} 1200w`;
           link.imageSizes = PROJECT_IMAGE_SIZES;
 
           document.head.appendChild(link);
@@ -64,7 +70,7 @@ function Projects({ _data }) {
               width="640"
               height="360"
               src={item.images.phone.img}
-              srcSet={`${item.images.phone.img} 480w, ${item.images.tablet.img} 800w, ${item.images.desctop.img} 1200w`}
+              srcSet={`${item.images.phone.img} 480w, ${item.images.phoneLarge.img} 640w, ${item.images.tablet.img} 800w, ${item.images.desctop.img} 1200w`}
               sizes={PROJECT_IMAGE_SIZES}
               alt={item.description}
               loading={loading}
