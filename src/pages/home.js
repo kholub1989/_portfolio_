@@ -41,9 +41,13 @@ function Home({ _data }) {
         stagger: { each: 0.025, from: "random" },
       })
         .from(
+          // No opacity here on purpose: the last line is this page's LCP
+          // element on mobile, and Chrome won't count an element as
+          // "painted" while it's still mid-opacity-tween - that was adding
+          // ~1.2s of pure render delay to LCP. A transform-only slide still
+          // reads as an entrance without ever hiding the text.
           headline.lines,
           {
-            opacity: 0,
             y: 20,
             duration: 0.6,
             stagger: 0.12,
