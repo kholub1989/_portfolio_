@@ -75,24 +75,23 @@
   }
 }
 
+// Same simple color-swap language as .btn/.btn-show-more/.btn-form above -
+// no motion, just an eased color change, extended to :focus-visible so
+// keyboard users get the same feedback mouse hover does.
 .btn-link {
   color: var(--themeSimpleTextColor);
   display: inline-block;
   text-decoration: none;
   border-bottom: 0.2rem solid $color-primary;
   @include focusVisible;
-  transition: color 0.3s, border 0.3s, background-color 0.3s;
+  transition: color 0.3s;
 
   &:hover {
     color: $color-primary;
-    border-bottom: 0.2rem solid $color-primary;
-    // box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
-    transform: translateY(-2px);
   }
 
-  &:active {
-    border-bottom: 0.2rem solid $color-primary;
-    // box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
-    transform: translateY(0);
+  &:focus-visible {
+    color: $color-primary;
+    transition: color 0.3s;
   }
 }
