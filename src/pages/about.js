@@ -58,7 +58,7 @@ function About({ _data }) {
   }, [h2, p1, p2a, p2b, p2c, p2d, p3, image]);
 
   return (
-    <div className="about-wrapper">
+    <div className="about-wrapper" id="about-wrapper">
       <section className="about">
         <h2 className="heading-secondary" ref={h2}>
           I build modern experiences for humans with&nbsp;

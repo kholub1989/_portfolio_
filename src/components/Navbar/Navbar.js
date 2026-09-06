@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-scroll";
 import Logo from "../Logo/Logo";
 import "../../main.scss";
 import { gsap, Power3 } from "gsap";
@@ -8,6 +7,53 @@ import ThemeBtn from "../LightDarkTheme/ThemeBtn";
 import { prefersReducedMotion } from "../../utils/scrollReveal";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const NAV_SECTIONS = [
+  { label: "Home", id: "home-wrapper" },
+  { label: "About", id: "about-wrapper" },
+  { label: "Projects", id: "project-wrapper" },
+  { label: "Contact me", id: "contact-me-wrapper" },
+];
+const NAV_IDS = NAV_SECTIONS.map((section) => section.id);
+
+function scrollToId(id, offset = 0) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY + offset;
+  window.scrollTo({ top, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+}
+
+// Tracks which nav section is currently in view, via IntersectionObserver
+// instead of react-scroll's scroll-position polling - watches a thin band
+// near the vertical center of the viewport and treats whichever section
+// crosses it as active, the same "spy" behavior the old <Link spy> gave.
+function useActiveSection(ids) {
+  const [activeId, setActiveId] = useState(null);
+
+  useEffect(() => {
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (!visible.length) return;
+        const topMost = visible.reduce((a, b) =>
+          a.boundingClientRect.top <= b.boundingClientRect.top ? a : b
+        );
+        setActiveId(topMost.target.id);
+      },
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return activeId;
+}
 
 const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   const [active, setActive] = useState(false);
@@ -56,95 +102,33 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
 };
 
 const List = ({ _data, isViewportMobile, onNavigate }) => {
+  const activeId = useActiveSection(NAV_IDS);
+
+  const handleNavClick = (id) => (event) => {
+    event.preventDefault();
+    scrollToId(id);
+    if (onNavigate) onNavigate();
+  };
+
   return (
     <nav className="nav nav__main" id={onNavigate ? "mobile-nav-menu" : undefined}>
       <ul className="nav__list">
-        <li className="nav__item">
-          <Link
-            className="nav__link"
-            activeClass="nav-active"
-            to="home-wrapper"
-            spy={true}
-            smooth={true}
-            // offset={-50}
-            duration={600}
-            href="home-wrapper"
-            onClick={onNavigate}
-          >
-            Home
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link
-            className="nav__link"
-            activeClass="nav-active"
-            to="about-wrapper"
-            spy={true}
-            smooth={true}
-            // offset={-80}
-            duration={600}
-            href="about-wrapper"
-            onClick={onNavigate}
-          >
-            About
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link
-            className="nav__link"
-            activeClass="nav-active"
-            to="project-wrapper"
-            spy={true}
-            smooth={true}
-            // offset={-70}
-            // offset={-80}
-            duration={600}
-            href="project-wrapper"
-            onClick={onNavigate}
-          >
-            Projects
-          </Link>
-        </li>
-        <li className="nav__item">
-          <Link
-            className="nav__link"
-            activeClass="nav-active"
-            to="contact-me-wrapper"
-            spy={true}
-            smooth={true}
-            // offset={-50}
-            duration={600}
-            href="contact-me-wrapper"
-            onClick={onNavigate}
-          >
-            Contact me
-          </Link>
-        </li>
+        {NAV_SECTIONS.map(({ label, id }) => (
+          <li className="nav__item" key={id}>
+            <a
+              className={`nav__link${id === activeId ? " nav-active" : ""}`}
+              href={`#${id}`}
+              onClick={handleNavClick(id)}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
         {!isViewportMobile &&
         <li className="nav__item nav__item--theme">
           <ThemeBtn _data={_data} />
         </li>
         }
-        {/* <li className="nav__item hover-target">
-          <a href="#home" className="smoothscroll nav__link nav-active">
-            Home
-          </a>
-        </li>
-        <li className="nav__item hover-target">
-          <a href="#about" className=" smoothscroll nav__link">
-            About
-          </a>
-        </li>
-        <li className="nav__item hover-target">
-          <a href="#work" className="smoothscroll nav__link">
-            Work
-          </a>
-        </li>
-        <li className="nav__item hover-target">
-          <a href="#contact-me" className="smoothscroll nav__link">
-            Contact Me
-          </a>
-        </li> */}
       </ul>
     </nav>
   );
@@ -213,19 +197,19 @@ const Navbar = ({ _data }) => {
   return (
     <header className="header" ref={header}>
       <div className="header__wrapper">
-        <Link
-          to="home"
-          smooth={true}
-          offset={-50}
-          duration={400}
+        <a
           className="header__wrapper--link"
-          href="/"
+          href="#home"
           aria-label="logo"
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToId("home", -50);
+          }}
           onMouseEnter={handleLogoFlutter}
           onFocus={handleLogoFlutter}
         >
           <Logo ref={logo} />
-        </Link>
+        </a>
         {isMobile ? (
           <MobileList
             _data={_data}

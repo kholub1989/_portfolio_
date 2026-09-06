@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../main.scss";
-import { animateScroll as scroll } from "react-scroll";
 import { gsap } from "gsap";
-import { revealOnScroll } from "../utils/scrollReveal";
+import { revealOnScroll, prefersReducedMotion } from "../utils/scrollReveal";
 
 const projectsPerPage = 2;
 // Matches .project-img's actual rendered width (see _projects.scss): the
@@ -184,11 +183,14 @@ function Projects({ _data }) {
   const handelClickShowMore = () => {
     loopProjects(ref.current, ref.current + projectsPerPage);
     ref.current += projectsPerPage;
-    scroll.scrollMore(350);
+    window.scrollBy({
+      top: 350,
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
+    });
   };
 
   return (
-    <div className="project-wrapper">
+    <div className="project-wrapper" id="project-wrapper">
       <section className="projects" id="projects">
         <div className="projects__bloc">
           <h2 className="heading-secondary" ref={h2}>

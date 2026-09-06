@@ -74,8 +74,8 @@ function Home({ _data }) {
 
   return (
     <>
-      <div className="home-wrapper">
-        <section className="home">
+      <div className="home-wrapper" id="home-wrapper">
+        <section className="home" id="home">
           <div className="home__text">
             <h1 className="heading-primary" ref={h1}>
               <span className="heading-primary--white">Hi, </span> <br />

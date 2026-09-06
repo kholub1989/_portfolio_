@@ -29,7 +29,7 @@ function ContactMe() {
   }, [h2, form]);
 
   return (
-    <div className="contact-me-wrapper">
+    <div className="contact-me-wrapper" id="contact-me-wrapper">
       <section className="contact-me" id="contact-me">
         <div className="contact-me__bloc">
           <h2 className="heading-secondary" ref={h2}>
