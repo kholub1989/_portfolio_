@@ -61,19 +61,22 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   useEffect(() => {
     const logoEl = document.querySelector(".header__wrapper--link");
     if (!logoEl) return;
-    logoEl.classList.toggle("hide-element", active && isPhone);
-    return () => logoEl.classList.remove("hide-element");
+    // visibility:hidden, not the SR-visible .hide-element utility: this
+    // needs to disappear for everyone (screen readers and keyboard tab
+    // order included) while the menu covers it, not just visually while
+    // staying announced/focusable.
+    logoEl.classList.toggle("logo-hidden", active && isPhone);
+    return () => logoEl.classList.remove("logo-hidden");
   }, [active, isPhone]);
 
   return (
     <>
-      {active && (
-        <List
-          _data={_data}
-          isViewportMobile={isViewportMobile}
-          onNavigate={() => setActive(false)}
-        />
-      )}
+      <List
+        _data={_data}
+        isViewportMobile={isViewportMobile}
+        onNavigate={() => setActive(false)}
+        collapsed={!active}
+      />
       <nav className="nav">
         <ul className="nav__list">
           <li className="nav__item nav__item--theme">
@@ -101,7 +104,7 @@ const MobileList = ({ _data, isViewportMobile, isPhone}) => {
   );
 };
 
-const List = ({ _data, isViewportMobile, onNavigate }) => {
+const List = ({ _data, isViewportMobile, onNavigate, collapsed = false }) => {
   const activeId = useActiveSection(NAV_IDS);
 
   const handleNavClick = (id) => (event) => {
@@ -111,12 +114,16 @@ const List = ({ _data, isViewportMobile, onNavigate }) => {
   };
 
   return (
-    <nav className="nav nav__main" id={onNavigate ? "mobile-nav-menu" : undefined}>
+    <nav
+      className={`nav nav__main${collapsed ? " nav__main--collapsed" : ""}`}
+      id={onNavigate ? "mobile-nav-menu" : undefined}
+    >
       <ul className="nav__list">
         {NAV_SECTIONS.map(({ label, id }) => (
           <li className="nav__item" key={id}>
             <a
               className={`nav__link${id === activeId ? " nav-active" : ""}`}
+              aria-current={id === activeId ? "true" : undefined}
               href={`#${id}`}
               onClick={handleNavClick(id)}
             >
@@ -159,7 +166,9 @@ const Navbar = ({ _data }) => {
     window.matchMedia("(max-width:900px)").matches
   );
 
-  const [isPhone, setIsPhone] = useState(true);
+  const [isPhone, setIsPhone] = useState(
+    window.matchMedia("(max-width:400px)").matches
+  );
 
   useEffect(() => {
     const handleResize = () => {

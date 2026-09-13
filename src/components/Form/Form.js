@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "../../main.scss";
 
 const emailRegex = RegExp(
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
 const formValid = ({ formErrors, ...rest }) => {

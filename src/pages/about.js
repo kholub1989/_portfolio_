@@ -96,7 +96,7 @@ function About({ _data }) {
                 className="btn-link"
                 href="https://www.linkedin.com/in/kholub1989/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
               >
                 LinkedIn &rarr;
               </a>

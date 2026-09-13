@@ -95,40 +95,40 @@ $breakpoint:
 }
 
 @mixin u-center-text {
-  text-align: center !important;
+  text-align: center;
 }
 
 @mixin u-margin-top-huge {
-  margin-top: 8rem !important;
+  margin-top: 8rem;
 }
 
 @mixin u-margin-top-big {
-  margin-top: 5rem !important;
+  margin-top: 5rem;
 }
 
 @mixin u-margin-top-medium {
-  margin-top: 4rem !important;
+  margin-top: 4rem;
 }
 
 @mixin u-margin-bottom-big {
-  margin-bottom: 6rem !important;
+  margin-bottom: 6rem;
 
   @include respound(tab-port) {
-    margin-bottom: 4rem !important;
+    margin-bottom: 4rem;
   }
 }
 
 @mixin u-margin-bottom-medium {
-  margin-bottom: 4rem !important;
+  margin-bottom: 4rem;
 
   @include respound(tab-port) {
-    margin-bottom: 3rem !important;
+    margin-bottom: 3rem;
   }
 }
 
 @mixin u-margin-bottom-small {
-  margin-bottom: 2rem !important;
+  margin-bottom: 2rem;
   @include respound(tab-port) {
-    margin-bottom: 4rem !important;
+    margin-bottom: 4rem;
   }
 }

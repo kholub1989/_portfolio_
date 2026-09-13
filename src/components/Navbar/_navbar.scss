@@ -24,6 +24,12 @@
     width: 3rem;
     user-select: none;
     @include focusVisible;
+
+    // visibility (not display:none) so the logo keeps its layout space -
+    // hiding it this way doesn't shift the burger/theme toggle next to it.
+    &.logo-hidden {
+      visibility: hidden;
+    }
   }
 }
 
@@ -31,6 +37,12 @@
   &__main {
     @include respound(tab-land) {
       margin-left: calc(3.5rem / 2);
+    }
+
+    // Always rendered (so aria-controls has something real to point at
+    // even while collapsed) - hidden this way instead of unmounting.
+    &--collapsed {
+      display: none;
     }
   }
 

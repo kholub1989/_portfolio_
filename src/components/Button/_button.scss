@@ -82,16 +82,20 @@
   color: var(--themeSimpleTextColor);
   display: inline-block;
   text-decoration: none;
-  border-bottom: 0.2rem solid $color-primary;
+  border-bottom: 0.2rem solid var(--themePrimaryTextColor);
   @include focusVisible;
   transition: color 0.3s;
 
+  // --themePrimaryTextColor, not $color-primary: the flat accent blue is
+  // only 2.65:1 against light mode's background (fails WCAG AA's 4.5:1),
+  // where this token resolves to a dark navy instead (13.75:1). Dark mode
+  // still gets the blue either way - this token is $color-primary there.
   &:hover {
-    color: $color-primary;
+    color: var(--themePrimaryTextColor);
   }
 
   &:focus-visible {
-    color: $color-primary;
+    color: var(--themePrimaryTextColor);
     transition: color 0.3s;
   }
 }

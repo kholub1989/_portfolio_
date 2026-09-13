@@ -11,8 +11,11 @@ const projectsPerPage = 2;
 // side of that range (never picks a source too small to look sharp) while
 // still telling the browser the truth instead of the old "100vw", which
 // was causing it to fetch a needlessly large srcset candidate. ~34% of
-// the container above the phone breakpoint.
-const PROJECT_IMAGE_SIZES = "(max-width: 37.5em) 85vw, 34vw";
+// the container above the phone breakpoint, capped at 428px - measured
+// live across 900-3200px viewports and the rendered width plateaus at
+// 427.9px once the container's own max-width takes over, so 34vw alone
+// keeps overstating the real box on any wide/ultra-wide monitor.
+const PROJECT_IMAGE_SIZES = "(max-width: 37.5em) 85vw, min(34vw, 428px)";
 
 function Projects({ _data }) {
   const h2 = useRef(null);
