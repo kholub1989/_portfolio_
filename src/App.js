@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "./utils/useTheme";
 import "./main.scss";
-import Loading from "./components/Loading/Loading";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -38,7 +37,7 @@ function App() {
   return (
     <div className={theme}>
       <main className="main">
-        {loading ? (
+        {loading && (
           <>
             <Navbar _data={data} />
             <Home _data={data.main} />
@@ -47,8 +46,6 @@ function App() {
             <ContactMe />
             <Footer _data={data} />
           </>
-        ) : (
-          <Loading />
         )}
       </main>
     </div>
