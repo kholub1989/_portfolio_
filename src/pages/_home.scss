@@ -3,6 +3,19 @@
 .home-wrapper {
   @include container;
 
+  // Hidden by default so the hero's GSAP entrance (home.js) has something
+  // to animate *from* - without this, the browser paints these elements in
+  // their normal, fully-visible state first (React mounts synchronously,
+  // before any effect runs), then GSAP's tweens yank them back to hidden a
+  // beat later, producing a visible flash. A CSS default has no such race:
+  // it applies before first paint, regardless of how long JS takes to
+  // start the animation. `home.js` sets these back to visible via
+  // `gsap.set()` when the visitor prefers reduced motion, so this never
+  // strands them hidden.
+  &__scroll-down {
+    opacity: 0;
+  }
+
   .home {
     min-height: 100vh;
     display: flex;
@@ -17,6 +30,7 @@
       flex-basis: 55%;
       flex-grow: 1;
       margin-right: 2rem;
+      opacity: 0;
 
       @include respound(tab-port) {
         @include u-margin-top-medium;
@@ -31,6 +45,7 @@
       flex-basis: 45%;
       user-select: none;
       pointer-events: none;
+      opacity: 0;
 
       @include respound(tab-port) {
         width: 80%;

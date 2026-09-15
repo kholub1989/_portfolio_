@@ -8,6 +8,12 @@
   background-color: var(--themeBgColor);
   box-shadow: 0px 2px 6px 0px var(--themeBoxShadow);
   z-index: 999;
+  // Hidden by default so Navbar.js's GSAP entrance has something to
+  // animate from, instead of the header being fully visible for one or
+  // more paints before the effect runs and snaps it back to hidden - see
+  // the matching comment in _home.scss for the full explanation. Restored
+  // via `gsap.set()` when the visitor prefers reduced motion.
+  opacity: 0;
 
   &__wrapper {
     @include container;

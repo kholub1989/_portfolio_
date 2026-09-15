@@ -182,12 +182,26 @@ const Navbar = ({ _data }) => {
     // tween mid-flight of the first, which corrupts the captured end state
     // and leaves the header stuck at low opacity.
     const ctx = gsap.context(() => {
-      gsap.from(header.current, {
-        opacity: 0,
-        y: -50,
-        duration: 1.2,
-        ease: Power3.easeOut,
-      });
+      // .header defaults to opacity: 0 in CSS (see _navbar.scss) so this
+      // entrance has something to animate from without a flash of the
+      // fully-visible header first. Reduced-motion visitors skip the
+      // tween, so set it back to visible directly instead of leaving it
+      // stranded hidden.
+      if (prefersReducedMotion()) {
+        gsap.set(header.current, { opacity: 1, y: 0 });
+      } else {
+        // fromTo (not from) deliberately: .header's CSS default is also
+        // opacity: 0, and .from() reads the element's *current* computed
+        // style as its implicit end value - that would read the same 0 and
+        // animate 0 -> 0, a no-op that looks identical to a permanently
+        // stuck header (see the matching note in home.js for the full
+        // explanation of this GSAP gotcha).
+        gsap.fromTo(
+          header.current,
+          { opacity: 0, y: -50 },
+          { opacity: 1, y: 0, duration: 1.2, ease: Power3.easeOut }
+        );
+      }
       gsap.to(customScroll.current, {
         value: 100,
         // ease: "none",
